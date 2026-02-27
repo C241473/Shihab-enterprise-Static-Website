@@ -29,7 +29,7 @@ header {
   gap: 10px;
   flex-wrap: wrap;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: relative; /* sticky removed */
+  position: relative;
   border-bottom: 2px solid #0a58ca;
   border-radius: 0 0 12px 12px;
 }
@@ -98,6 +98,15 @@ header h1 {
   background: white;
   color: #0d6efd;
   border-color: #0d6efd;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  header { flex-direction: column; align-items: center; text-align: center; }
+  .header-center { flex-direction: column; gap: 4px; margin: 6px 0; }
+  .header-buttons { flex-direction: column; width: 100%; margin-top: 8px; }
+  .header-buttons button, .header-buttons .language-switcher { width: 100%; margin-bottom: 6px; }
+  .header-buttons button:last-child, .header-buttons .language-switcher:last-child { margin-bottom: 0; }
 }
 
 /* ==================== HERO ==================== */
@@ -218,17 +227,6 @@ button.order-btn:hover { opacity: 0.95; transform: translateY(-2px); }
 /* ==================== FOOTER ==================== */
 footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
 
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 480px) {
-  header { flex-direction: column; align-items: flex-start; }
-  .header-center { flex-direction: column; gap: 6px; margin: 6px 0; }
-  .header-buttons { flex-direction: column; width: 100%; }
-  .header-buttons button { width: 100%; margin-bottom: 6px; }
-  .hero h2 { font-size: 20px; }
-  .multi-select-item { flex-direction: column; align-items: flex-start; min-height: auto; }
-  .multi-select-item .qty-unit { width: 100%; margin-top: 4px; }
-  button.order-btn { width: 100%; margin-right: 0; margin-bottom: 8px; }
-}
 </style>
 </head>
 
