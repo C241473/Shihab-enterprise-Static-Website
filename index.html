@@ -6,7 +6,7 @@
 <title>শিহাব এন্টারপ্রাইজ</title>
 
 <style>
-/* BASE STYLES */
+/* ==================== BASE STYLES ==================== */
 body { 
   margin: 0; 
   font-family: 'Segoe UI', sans-serif; 
@@ -15,26 +15,26 @@ body {
 }
 
 h2 { color: #0d6efd; text-align: center; margin: 20px 0 10px; }
+
 .container { padding: 0 15px; max-width: 1024px; margin: auto; }
-/* HEADER UPDATED */
+
+/* ==================== HEADER ==================== */
 header {
   background: linear-gradient(45deg,#0d6efd,#0a58ca);
   color: white;
-  padding: 15px 20px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
-  position: sticky; /* sticky header */
-  top: 0;
-  z-index: 1000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: relative; /* sticky removed */
+  border-bottom: 2px solid #0a58ca;
+  border-radius: 0 0 12px 12px;
 }
 
-.header-left {
-  flex: 1;
-}
+.header-left { flex: 1; }
 
 .header-center {
   display: flex;
@@ -60,7 +60,7 @@ header h1 {
 .header-buttons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -68,7 +68,7 @@ header h1 {
   background: rgba(255,255,255,0.15);
   color: white;
   border: none;
-  padding: 8px 14px;
+  padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
@@ -82,12 +82,8 @@ header h1 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* LANGUAGE SWITCHER INLINE */
-.header-buttons .language-switcher {
-  margin-left: 0;
-}
-
-header .language-switcher select {
+/* LANGUAGE SWITCHER */
+.header-buttons .language-switcher select {
   padding: 6px 10px;
   font-size: 14px;
   border-radius: 6px;
@@ -98,13 +94,13 @@ header .language-switcher select {
   transition: all 0.3s ease;
 }
 
-header .language-switcher select:hover {
+.header-buttons .language-switcher select:hover {
   background: white;
   color: #0d6efd;
   border-color: #0d6efd;
 }
 
-/* HERO */
+/* ==================== HERO ==================== */
 .hero {
   background: url('logo.png') no-repeat center center;
   background-size: 250px auto;
@@ -129,37 +125,89 @@ header .language-switcher select:hover {
 .hero h2 { margin-bottom: 12px; font-size: 22px; }
 .hero p { font-size: 16px; max-width: 680px; margin: auto; line-height: 1.5; }
 
-/* PRODUCTS */
-.products { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 30px; }
-.product-card { background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.07); padding: 16px; text-align: center; cursor: default; transition: transform .2s, box-shadow .2s; }
-.product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+/* ==================== PRODUCTS ==================== */
+.products { 
+  display: grid; 
+  gap: 20px; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  margin-bottom: 30px; 
+}
+
+.product-card { 
+  background: #fff; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.07); 
+  padding: 16px; 
+  text-align: center; 
+  cursor: default; 
+  transition: transform .2s, box-shadow .2s; 
+}
+
+.product-card:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12); 
+}
+
 .product-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
 .product-card h3 { margin: 6px 0; font-size: 16px; color: #0d6efd; }
 .product-card p { font-size: 14px; color: #555; }
-.btn-see { background: #0d6efd; color: white; padding: 8px 12px; border-radius: 6px; font-size: 14px; margin-top: 8px; cursor: pointer; }
+.btn-see { background: #0d6efd; color: white; padding: 8px 12px; border-radius: 6px; font-size: 14px; margin-top: 8px; cursor: pointer; transition: 0.3s; }
+.btn-see:hover { opacity: 0.9; transform: translateY(-2px); }
 
-/* ORDER FORM */
+/* ==================== ORDER FORM ==================== */
 form { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); margin-bottom: 30px; }
-.form-group { margin-bottom: 14px; }
-form label { display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600; }
-form input, form textarea, form select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; }
-form input:focus, form textarea:focus, form select:focus { outline: none; border-color: #0d6efd; }
-button.order-btn { background: #0d6efd; color: white; font-size: 16px; padding: 12px; margin-top: 12px; border: none; border-radius: 6px; cursor: pointer; width: 48%; margin-right: 2%; }
-button.order-btn:last-child { margin-right: 0; }
-button.order-btn:hover { opacity: 0.95; }
 
-/* PRODUCT LIST */
+.form-group { margin-bottom: 14px; }
+
+form label { display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600; }
+
+form input, form textarea, form select { 
+  width: 100%; 
+  padding: 10px; 
+  border-radius: 6px; 
+  border: 1px solid #ccc; 
+  font-size: 14px; 
+}
+
+form input:focus, form textarea:focus, form select:focus { 
+  outline: none; 
+  border-color: #0d6efd; 
+}
+
+button.order-btn { 
+  background: #0d6efd; 
+  color: white; 
+  font-size: 16px; 
+  padding: 12px; 
+  margin-top: 12px; 
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  width: 48%; 
+  margin-right: 2%; 
+  transition: 0.3s; 
+}
+
+button.order-btn:last-child { margin-right: 0; }
+
+button.order-btn:hover { opacity: 0.95; transform: translateY(-2px); }
+
+/* ==================== MULTI SELECT ==================== */
 .multi-select-list { border: 1px solid #ccc; border-radius: 8px; padding: 12px; max-height: 320px; overflow-y: auto; }
+
 .multi-select-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; min-height: 48px; }
 .multi-select-item:last-child { border-bottom: none; }
+
 .multi-select-item label { display: flex; align-items: center; gap: 10px; cursor: pointer; flex: 1; }
 .multi-select-item label input[type="checkbox"] { width: 18px; height: 18px; margin: 0; }
+
 .multi-select-item span { font-weight: 600; }
+
 .multi-select-item .qty-unit { display: flex; gap: 8px; align-items: center; }
 .multi-select-item .qty-unit input[type="number"] { width: 60px; padding: 6px; border-radius:6px; border:1px solid #ccc; }
 .multi-select-item .qty-unit select { padding: 6px; border-radius:6px; }
 
-/* MODAL */
+/* ==================== MODAL ==================== */
 .modal-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 9999; }
 .modal-box { width: 90%; max-width: 500px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); text-align: left; }
 .modal-box h3 { margin-top: 0; color: #0d6efd; }
@@ -167,11 +215,15 @@ button.order-btn:hover { opacity: 0.95; }
 .modal-close { float: right; font-size: 18px; cursor: pointer; color: #888; }
 .modal-close:hover { color: #000; }
 
-/* FOOTER */
+/* ==================== FOOTER ==================== */
 footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
 
-/* RESPONSIVE */
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 480px) {
+  header { flex-direction: column; align-items: flex-start; }
+  .header-center { flex-direction: column; gap: 6px; margin: 6px 0; }
+  .header-buttons { flex-direction: column; width: 100%; }
+  .header-buttons button { width: 100%; margin-bottom: 6px; }
   .hero h2 { font-size: 20px; }
   .multi-select-item { flex-direction: column; align-items: flex-start; min-height: auto; }
   .multi-select-item .qty-unit { width: 100%; margin-top: 4px; }
@@ -179,6 +231,7 @@ footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -201,11 +254,13 @@ footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
   </div>
 </header>
 
+<!-- Hero Section -->
 <div class="hero">
   <h2 class="typing" id="typingText"></h2>
   <p id="heroDesc">উন্নত মানের জিপসাম পাউডার ও জিপসাম বোর্ড আমদানি ও সরবরাহ করি।</p>
 </div>
 
+<!-- Container -->
 <div class="container">
   <h2 id="productsTitle">📦 আমাদের পণ্যসমূহ</h2>
   <div class="products" id="productCards"></div>
@@ -213,6 +268,7 @@ footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
   <h2 id="orderTitle">🛒 অর্ডার করুন</h2>
   <p id="minOrderNote" style="text-align:center;font-weight:600;color:#d63384;">মিনিমাম অর্ডার: 100 ব্যাগ (100 ব্যাগ অর্ডার না করলে অর্ডার গ্রহণযোগ্য হবে না)</p>
   <p id="gypsumNote" style="text-align:center; font-weight:600; color:#d63384; margin-bottom:20px;"></p>
+  
   <form id="orderForm">
     <div class="form-group">
       <label for="name" id="labelName">আপনার নাম</label>
@@ -250,9 +306,11 @@ footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
 </div>
 
 <script>
+// ==================== LANGUAGE & TEXTS ====================
 let language = 'bn';
 const langSelect = document.getElementById("langSelect");
 
+// texts object remains same as you provided (bn & en)
 const texts = {
   bn:{
     siteTitle:"শিহাব এন্টারপ্রাইজ",
@@ -368,23 +426,7 @@ units:[
   }
 };
 
-function renderProducts(){
-  const container = document.getElementById("productCards");
-  container.innerHTML = "";
-  texts[language].products.forEach((p,i)=>{
-    const card = document.createElement("div");
-    card.className="product-card";
-    card.innerHTML=`
-      <img src="${i+1}.jpg" alt="${p.name}">
-      <h3>${p.name}</h3>
-      <p>${p.details}</p>
-      <button class="btn-see">${language==='bn'?'বিস্তারিত':'See More'}</button>
-    `;
-    card.querySelector(".btn-see").onclick=()=>openModal(i);
-    container.appendChild(card);
-  });
-}
-// Render Products
+// ==================== RENDER PRODUCTS ====================
 function renderProducts(){
   const container = document.getElementById("productCards");
   container.innerHTML = "";
@@ -402,7 +444,7 @@ function renderProducts(){
   });
 }
 
-// Render Order List
+// ==================== RENDER ORDER LIST ====================
 function renderOrderList(){
   const listContainer = document.getElementById("multiSelectProductsList");
   listContainer.innerHTML="";
@@ -424,7 +466,7 @@ function renderOrderList(){
   });
 }
 
-// Update Gypsum Note
+// ==================== GYPSUM NOTE ====================
 function updateGypsumNote() {
   const noteEl = document.getElementById("gypsumNote");
   if(language==='bn'){
@@ -434,7 +476,7 @@ function updateGypsumNote() {
   }
 }
 
-// Update Language
+// ==================== UPDATE LANGUAGE ====================
 function updateLanguage(){
   document.getElementById("siteTitle").textContent = texts[language].siteTitle;
   document.getElementById("btnProducts").textContent = texts[language].btnProducts;
@@ -456,10 +498,10 @@ function updateLanguage(){
   document.getElementById("footerText").textContent = texts[language].footer;
   renderProducts();
   renderOrderList();
-  updateGypsumNote(); // ✅ important
+  updateGypsumNote();
 }
 
-// Modal
+// ==================== MODAL ====================
 function openModal(i){
   document.getElementById("modalTitle").textContent = texts[language].products[i].name;
   document.getElementById("modalDesc").textContent = texts[language].products[i].desc;
@@ -467,7 +509,7 @@ function openModal(i){
 }
 function closeModal(){ document.getElementById("modalBg").style.display="none"; }
 
-// Hero Typing
+// ==================== HERO TYPING ====================
 let idx=0;
 function typeHero(){
   const el = document.getElementById("typingText");
@@ -479,18 +521,18 @@ function typeHero(){
 }
 typeHero();
 
-// Language Switch
+// ==================== LANGUAGE SWITCH ====================
 langSelect.addEventListener("change", ()=>{
   language = langSelect.value;
   updateLanguage();
 });
 
-// Redirect Buttons
+// ==================== NAV BUTTONS ====================
 document.getElementById('btnProducts').addEventListener('click', ()=>{ window.location.href='buyer.html'; });
 document.getElementById('btnServices').addEventListener('click', ()=>{ window.location.href='service.html'; });
 document.getElementById('btnContact').addEventListener('click', ()=>{ window.location.href='contact.html'; });
 
-// Order Message
+// ==================== ORDER MESSAGE ====================
 function getMessage(){
   const selectedItems = Array.from(document.querySelectorAll(".multi-select-item"))
     .filter(item => item.querySelector(".prodCheckbox").checked);
@@ -510,9 +552,9 @@ document.getElementById("btnEmail").onclick = ()=>{
   window.location.href=`mailto:Sihab5224@gmail.com?subject=New Order&body=${getMessage().replace(/%0A/g,"\n")}`; 
 }
 
-// Initial Render
+// ==================== INITIAL RENDER ====================
 updateLanguage();
 </script>
-</body>
 
+</body>
 </html>
