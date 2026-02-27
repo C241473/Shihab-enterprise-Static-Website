@@ -16,32 +16,38 @@ body {
 
 h2 { color: #0d6efd; text-align: center; margin: 20px 0 10px; }
 .container { padding: 0 15px; max-width: 1024px; margin: auto; }
-/* UPDATED HEADER */
+/* HEADER UPDATED */
 header {
   background: linear-gradient(45deg,#0d6efd,#0a58ca);
   color: white;
   padding: 15px 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
-  position: sticky;
+  flex-wrap: wrap;
+  position: sticky; /* sticky header */
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-header .header-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+.header-left {
+  flex: 1;
 }
 
-header img.logo-small {
-  height: 50px;
-  width: auto;
-  border-radius: 6px;
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+  gap: 10px;
+}
+
+header img.logo-small { 
+  height: 50px; 
+  width: auto; 
+  border-radius: 6px; 
 }
 
 header h1 {
@@ -50,13 +56,12 @@ header h1 {
   text-align: center;
 }
 
-/* Buttons below logo/title */
+/* HEADER BUTTONS */
 .header-buttons {
   display: flex;
+  align-items: center;
+  gap: 10px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
 }
 
 .header-buttons button {
@@ -77,7 +82,12 @@ header h1 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.header-buttons .language-switcher select {
+/* LANGUAGE SWITCHER INLINE */
+.header-buttons .language-switcher {
+  margin-left: 0;
+}
+
+header .language-switcher select {
   padding: 6px 10px;
   font-size: 14px;
   border-radius: 6px;
@@ -94,26 +104,6 @@ header .language-switcher select:hover {
   border-color: #0d6efd;
 }
 
-/* MOBILE RESPONSIVE */
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 20px;
-  }
-
-  .header-buttons {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .header-buttons button {
-    width: 90%;
-    text-align: center;
-  }
-
-  header img.logo-small {
-    height: 45px;
-  }
-}
 /* HERO */
 .hero {
   background: url('logo.png') no-repeat center center;
@@ -524,4 +514,5 @@ document.getElementById("btnEmail").onclick = ()=>{
 updateLanguage();
 </script>
 </body>
+
 </html>
