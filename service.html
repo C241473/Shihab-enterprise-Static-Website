@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আমাদের সেবা - শিহাব এন্টারপ্রাইজ</title>
+
+<style>
+body{  
+  font-family:'Segoe UI',sans-serif;
+  background:#f7f8fa;
+  margin:0;
+  color:#333;
+}
+
+/* HEADER */
+header{
+  background: linear-gradient(45deg,#0d6efd,#0a58ca);
+  color:white;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+header img.logo-small {
+  height:50px;
+  width:auto;
+  border-radius:6px;
+  z-index:1;
+}
+header h1{
+  margin:0 15px;
+  font-size:22px;
+  flex:1;
+  text-align:left;
+  z-index:1;
+}
+
+/* HEADER BUTTONS */
+.header-buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  z-index:1;
+}
+.header-buttons button{
+  background:white;
+  color:#0d6efd;
+  padding:8px 14px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  margin-top:10px;
+  font-weight:600;
+  z-index:1;
+}
+
+/* LANGUAGE BUTTONS */
+.lang-btn{
+  background:white;
+  color:#0d6efd;
+  padding:6px 12px;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+}
+.lang-btn.active{
+  background:#0d6efd;
+  color:white;
+}
+
+/* CONTAINER */
+.container{
+  max-width:1000px;
+  margin:30px auto;
+  padding:20px;
+}
+
+/* TITLE */
+h2{
+  text-align:center;
+  color:#0d6efd;
+  margin-bottom:20px;
+}
+
+/* SERVICE GRID */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+  transition:.2s;
+  text-align:center;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+.icon{
+  font-size:32px;
+  margin-bottom:10px;
+}
+.card h3{
+  margin:10px 0;
+  color:#0d6efd;
+}
+.card p{
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:15px;
+  color:#777;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  header{
+    flex-direction:column;
+    align-items:center;
+  }
+  header h1{
+    text-align:center;
+    margin:10px 0;
+  }
+  .header-buttons{
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  .header-buttons button{
+    width:auto;
+    text-align:center;
+  }
+  .services{
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media(max-width:480px){
+  header{
+    padding:15px;
+  }
+  .header-buttons button{
+    padding:8px 10px;
+  }
+  .lang-btn{
+    padding:6px 10px;
+    font-size:14px;
+  }
+  .services{
+    grid-template-columns: 1fr;
+    gap:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="Logo" class="logo-small">
+  <h1 id="siteTitle">শিহাব এন্টারপ্রাইজ</h1>
+
+  <div class="header-buttons">
+    <button id="btnHome">🏠 হোম</button>
+    <!-- LANGUAGE BUTTONS -->
+    <button class="lang-btn active" id="btnBN">বাংলা</button>
+    <button class="lang-btn" id="btnEN">English</button>
+  </div>
+</header>
+
+<div class="container">
+  <h2 id="pageTitle">আমাদের সেবা</h2>
+  <div class="services" id="servicesContainer"></div>
+</div>
+
+<footer id="footerText">© ২০২৬ শিহাব এন্টারপ্রাইজ</footer>
+
+<script>
+let language = 'bn';
+
+const texts = {
+  bn:{
+    siteTitle:"শিহাব এন্টারপ্রাইজ",
+    btnHome:"🏠 হোম",
+    pageTitle:"আমাদের সেবা",
+    footer:"© ২০২৬ শিহাব এন্টারপ্রাইজ",
+    services:[
+      {icon:"🏗️", title:"জিপসাম পণ্য সরবরাহ", desc:"উন্নত মানের জিপসাম পাউডার, প্লাস্টার ও বোর্ড সরবরাহ করা হয় নির্মাণ কাজের জন্য।"},
+      {icon:"🚚", title:"দ্রুত ডেলিভারি", desc:"অর্ডার অনুযায়ী দ্রুত ও নিরাপদ ডেলিভারি নিশ্চিত করা হয়।"},
+      {icon:"🛠️", title:"টেকনিক্যাল সহায়তা", desc:"পণ্য ব্যবহারের সঠিক নির্দেশনা ও পরামর্শ প্রদান করা হয়।"},
+      {icon:"🌍", title:"আমদানি সেবা", desc:"বিদেশ থেকে উন্নত মানের জিপসাম কাঁচামাল ও পণ্য আমদানি করে গ্রাহকদের সরবরাহ করা হয়।"},
+      {icon:"📦", title:"বাল্ক অর্ডার সাপোর্ট", desc:"বড় পরিমাণ অর্ডারের জন্য বিশেষ মূল্য ও সরবরাহ সুবিধা প্রদান করা হয়।"},
+      {icon:"🤝", title:"গ্রাহক সাপোর্ট", desc:"যেকোনো প্রশ্ন বা সহায়তার জন্য দ্রুত কাস্টমার সাপোর্ট প্রদান করা হয়।"}
+    ]
+  },
+  en:{
+    siteTitle:"Sihab Enterprise",
+    btnHome:"🏠 Home",
+    pageTitle:"Our Services",
+    footer:"© 2026 Sihab Enterprise",
+    services:[
+      {icon:"🏗️", title:"Gypsum Products Supply", desc:"High-quality gypsum powder, plaster and boards supplied for construction purposes."},
+      {icon:"🚚", title:"Fast Delivery", desc:"Orders are delivered quickly and safely according to requirements."},
+      {icon:"🛠️", title:"Technical Support", desc:"Correct instructions and advice are provided for product use."},
+      {icon:"🌍", title:"Import Service", desc:"High-quality gypsum raw materials and products imported from abroad."},
+      {icon:"📦", title:"Bulk Order Support", desc:"Special prices and facilities provided for large quantity orders."},
+      {icon:"🤝", title:"Customer Support", desc:"Quick customer support for any questions or assistance."}
+    ]
+  }
+};
+
+function renderServices(){
+  document.getElementById('siteTitle').textContent = texts[language].siteTitle;
+  document.getElementById('btnHome').textContent = texts[language].btnHome;
+  document.getElementById('pageTitle').textContent = texts[language].pageTitle;
+  document.getElementById('footerText').textContent = texts[language].footer;
+
+  const container = document.getElementById('servicesContainer');
+  container.innerHTML = '';
+  texts[language].services.forEach(s=>{
+    const div = document.createElement('div');
+    div.className='card';
+    div.innerHTML = `<div class="icon">${s.icon}</div>
+                     <h3>${s.title}</h3>
+                     <p>${s.desc}</p>`;
+    container.appendChild(div);
+  });
+}
+
+// Header buttons redirect
+document.getElementById('btnHome').addEventListener('click', ()=>{ window.location.href='index.html'; });
+
+// LANGUAGE BUTTONS
+const btnBN = document.getElementById('btnBN');
+const btnEN = document.getElementById('btnEN');
+
+btnBN.addEventListener('click', ()=>{
+  language='bn';
+  btnBN.classList.add('active');
+  btnEN.classList.remove('active');
+  renderServices();
+});
+btnEN.addEventListener('click', ()=>{
+  language='en';
+  btnEN.classList.add('active');
+  btnBN.classList.remove('active');
+  renderServices();
+});
+
+// Initial render
+renderServices();
+</script>
+
+</body>
+</html>

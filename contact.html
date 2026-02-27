@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="Contact Us - Sihab Enterprise" data-bn="যোগাযোগ করুন - শিহাব এন্টারপ্রাইজ">যোগাযোগ করুন - শিহাব এন্টারপ্রাইজ</title>
+
+<style>
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#f7f8fa;
+  margin:0;
+  color:#333;
+}
+
+/* HEADER */
+header{
+  background: linear-gradient(45deg,#0d6efd,#0a58ca);
+  color:white;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  position:relative;
+}
+
+header img.logo-small {
+  height:50px;
+  width:auto;
+  border-radius:6px;
+  z-index:1;
+}
+header h1{
+  margin:0 15px;
+  font-size:22px;
+  flex:1;
+  text-align:left;
+  z-index:1;
+}
+
+/* HEADER BUTTONS */
+.header-buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  z-index:1;
+}
+.header-buttons button{
+  background:white;
+  color:#0d6efd;
+  padding:8px 14px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  margin-top:10px;
+  font-weight:600;
+  z-index:1;
+}
+.header-buttons button.active{
+  background:#0d6efd;
+  color:white;
+}
+
+/* CONTAINER */
+.container{
+  max-width:900px;
+  margin:30px auto;
+  padding:20px;
+}
+
+/* TITLE */
+h2{
+  text-align:center;
+  color:#0d6efd;
+  margin-bottom:20px;
+}
+
+/* CARD */
+.contact-card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+.contact-item{
+  margin:12px 0;
+  font-size:16px;
+}
+
+/* FORM */
+.contact-form{
+  margin-top:20px;
+}
+.contact-form input, .contact-form textarea{
+  width:90%;
+  max-width:400px;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+.contact-form button{
+  background:#0d6efd;
+  color:white;
+  padding:10px 20px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+}
+.contact-form button:hover{ opacity:0.9; }
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  margin:8px;
+  padding:10px 16px;
+  border-radius:6px;
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+}
+
+.btn-whatsapp{ background:#25D366; }
+.btn-email{ background:#0d6efd; }
+.btn-call{ background:#198754; }
+
+.btn:hover{ opacity:0.9; }
+
+footer{
+  text-align:center;
+  padding:15px;
+  color:#777;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  header{
+    flex-direction:column;
+    align-items:center;
+  }
+  header h1{
+    text-align:center;
+    margin:10px 0;
+  }
+  .header-buttons{
+    flex-direction: row;
+    justify-content:center;
+    width:100%;
+  }
+  .header-buttons button{
+    flex:1;
+    max-width:120px;
+    text-align:center;
+  }
+}
+
+@media(max-width:480px){
+  header{
+    padding:15px;
+  }
+  .header-buttons button{
+    padding:6px 10px;
+    font-size:14px;
+  }
+  .contact-form input, .contact-form textarea{
+    width:95%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="Logo" class="logo-small">
+  <h1 id="siteTitle" data-en="Sihab Enterprise" data-bn="শিহাব এন্টারপ্রাইজ">শিহাব এন্টারপ্রাইজ</h1>
+
+  <div class="header-buttons">
+    <button id="btnHome" data-en="🏠 Home" data-bn="🏠 হোম">🏠 হোম</button>
+    <button class="lang-btn active" id="btnBN">বাংলা</button>
+    <button class="lang-btn" id="btnEN">English</button>
+  </div>
+</header>
+
+<div class="container">
+  <h2 id="pageTitle" data-en="Contact Us" data-bn="যোগাযোগ করুন">যোগাযোগ করুন</h2>
+
+  <div class="contact-card">
+    <p id="introText" data-en="If you want any information, contact us below 👇" 
+       data-bn="যদি কোনো তথ্য জানতে চান, নিচের মাধ্যমে যোগাযোগ করুন 👇">
+       যদি কোনো তথ্য জানতে চান, নিচের মাধ্যমে যোগাযোগ করুন 👇
+    </p>
+
+    <div class="contact-item" id="emailText" data-en="📧 Email: Sihab5224@gmail.com" data-bn="📧 ইমেইল: Sihab5224@gmail.com">
+      📧 ইমেইল: Sihab5224@gmail.com
+    </div>
+    <div class="contact-item" id="phoneText" data-en="📞 Phone: 01872481201" data-bn="📞 ফোন: 01872481201">
+      📞 ফোন: 01872481201
+    </div>
+
+    <hr style="margin:20px 0">
+
+    <p id="directText" data-en="Contact directly" data-bn="সরাসরি যোগাযোগ করুন"><strong>সরাসরি যোগাযোগ করুন</strong></p>
+
+    <!-- WHATSAPP LINK -->
+    <a class="btn btn-whatsapp" id="btnWhatsApp" target="_blank">WhatsApp</a>
+
+    <!-- CALL LINK -->
+    <a class="btn btn-call" id="btnCall" href="tel:01872481201">ফোন করুন</a>
+
+    <!-- CONTACT FORM FOR EMAIL -->
+    <div class="contact-form">
+      <input type="text" id="name" placeholder="আপনার নাম" required><br>
+      <input type="tel" id="phone" placeholder="ফোন নাম্বার" required><br>
+      <textarea id="message" rows="3" placeholder="আপনার মেসেজ লিখুন"></textarea><br>
+      <button type="button" onclick="sendEmail()" id="btnSend" data-en="Send Email" data-bn="Email পাঠান">Email পাঠান</button>
+    </div>
+
+  </div>
+
+</div>
+
+<footer id="footerText" data-en="© 2026 Sihab Enterprise" data-bn="© ২০২৬ শিহাব এন্টারপ্রাইজ">
+  © ২০২৬ শিহাব এন্টারপ্রাইজ
+</footer>
+
+<script>
+// Language logic
+let language = 'bn';
+
+const texts = ['siteTitle','btnHome','pageTitle','introText','emailText','phoneText','directText','btnSend','footerText'];
+
+const langButtons = {bn: document.getElementById('btnBN'), en: document.getElementById('btnEN')};
+
+function applyLanguage(lang){
+  language = lang;
+  texts.forEach(id => {
+    const el = document.getElementById(id);
+    if(el){
+      el.textContent = (lang==='en') ? el.getAttribute('data-en') : el.getAttribute('data-bn');
+    }
+  });
+
+  // Update WhatsApp text
+  document.getElementById('btnWhatsApp').textContent = (lang==='en') ? "Message on WhatsApp" : "WhatsApp এ মেসেজ করুন";
+  document.getElementById('btnWhatsApp').href = "https://wa.me/8801872481201";
+
+  // Update Call text
+  document.getElementById('btnCall').textContent = (lang==='en') ? "Call" : "ফোন করুন";
+
+  // Button active
+  if(lang==='en'){
+    langButtons.en.classList.add('active');
+    langButtons.bn.classList.remove('active');
+  } else {
+    langButtons.bn.classList.add('active');
+    langButtons.en.classList.remove('active');
+  }
+}
+
+// Event listeners
+langButtons.bn.addEventListener('click', ()=>applyLanguage('bn'));
+langButtons.en.addEventListener('click', ()=>applyLanguage('en'));
+
+// Home button
+document.getElementById('btnHome').addEventListener('click', ()=>{ window.location.href='index.html'; });
+
+// Email function
+function sendEmail(){
+  const toEmail = "Sihab5224@gmail.com";
+  const subject = encodeURIComponent("Contact / Order - Sihab Enterprise");
+  const bodyMsg = encodeURIComponent(
+    "নাম: " + document.getElementById("name").value +
+    "\nফোন: " + document.getElementById("phone").value +
+    "\nমেসেজ: " + document.getElementById("message").value
+  );
+  window.location.href = `mailto:${toEmail}?subject=${subject}&body=${bodyMsg}`;
+}
+
+// On load
+document.addEventListener('DOMContentLoaded', ()=> applyLanguage('bn'));
+</script>
+
+</body>
+</html>

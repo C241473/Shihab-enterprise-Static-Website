@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>শিহাব এন্টারপ্রাইজ</title>
+
+<style>
+/* BASE STYLES */
+body { 
+  margin: 0; 
+  font-family: 'Segoe UI', sans-serif; 
+  color: #333; 
+  background: #f7f8fa;
+}
+
+h2 { color: #0d6efd; text-align: center; margin: 20px 0 10px; }
+.container { padding: 0 15px; max-width: 1024px; margin: auto; }
+/* HEADER UPDATED */
+header {
+  background: linear-gradient(45deg,#0d6efd,#0a58ca);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: sticky; /* sticky header */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+  gap: 10px;
+}
+
+header img.logo-small { 
+  height: 50px; 
+  width: auto; 
+  border-radius: 6px; 
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+  text-align: center;
+}
+
+/* HEADER BUTTONS */
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.header-buttons button {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.header-buttons button:hover {
+  background: white;
+  color: #0d6efd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* LANGUAGE SWITCHER INLINE */
+.header-buttons .language-switcher {
+  margin-left: 0;
+}
+
+header .language-switcher select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.15);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+header .language-switcher select:hover {
+  background: white;
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* HERO */
+.hero {
+  background: url('logo.png') no-repeat center center;
+  background-size: 250px auto;
+  text-align: center;
+  padding: 80px 15px 60px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(230, 239, 255, 0.85);
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.hero h2, .hero p { position: relative; z-index: 1; }
+.hero h2 { margin-bottom: 12px; font-size: 22px; }
+.hero p { font-size: 16px; max-width: 680px; margin: auto; line-height: 1.5; }
+
+/* PRODUCTS */
+.products { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 30px; }
+.product-card { background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.07); padding: 16px; text-align: center; cursor: default; transition: transform .2s, box-shadow .2s; }
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+.product-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
+.product-card h3 { margin: 6px 0; font-size: 16px; color: #0d6efd; }
+.product-card p { font-size: 14px; color: #555; }
+.btn-see { background: #0d6efd; color: white; padding: 8px 12px; border-radius: 6px; font-size: 14px; margin-top: 8px; cursor: pointer; }
+
+/* ORDER FORM */
+form { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); margin-bottom: 30px; }
+.form-group { margin-bottom: 14px; }
+form label { display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600; }
+form input, form textarea, form select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; }
+form input:focus, form textarea:focus, form select:focus { outline: none; border-color: #0d6efd; }
+button.order-btn { background: #0d6efd; color: white; font-size: 16px; padding: 12px; margin-top: 12px; border: none; border-radius: 6px; cursor: pointer; width: 48%; margin-right: 2%; }
+button.order-btn:last-child { margin-right: 0; }
+button.order-btn:hover { opacity: 0.95; }
+
+/* PRODUCT LIST */
+.multi-select-list { border: 1px solid #ccc; border-radius: 8px; padding: 12px; max-height: 320px; overflow-y: auto; }
+.multi-select-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; min-height: 48px; }
+.multi-select-item:last-child { border-bottom: none; }
+.multi-select-item label { display: flex; align-items: center; gap: 10px; cursor: pointer; flex: 1; }
+.multi-select-item label input[type="checkbox"] { width: 18px; height: 18px; margin: 0; }
+.multi-select-item span { font-weight: 600; }
+.multi-select-item .qty-unit { display: flex; gap: 8px; align-items: center; }
+.multi-select-item .qty-unit input[type="number"] { width: 60px; padding: 6px; border-radius:6px; border:1px solid #ccc; }
+.multi-select-item .qty-unit select { padding: 6px; border-radius:6px; }
+
+/* MODAL */
+.modal-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 9999; }
+.modal-box { width: 90%; max-width: 500px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); text-align: left; }
+.modal-box h3 { margin-top: 0; color: #0d6efd; }
+.modal-box p { line-height: 1.6; font-size: 14px; color: #444; margin-bottom: 10px; }
+.modal-close { float: right; font-size: 18px; cursor: pointer; color: #888; }
+.modal-close:hover { color: #000; }
+
+/* FOOTER */
+footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .hero h2 { font-size: 20px; }
+  .multi-select-item { flex-direction: column; align-items: flex-start; min-height: auto; }
+  .multi-select-item .qty-unit { width: 100%; margin-top: 4px; }
+  button.order-btn { width: 100%; margin-right: 0; margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left"></div>
+  <div class="header-center">
+    <img src="logo.png" alt="Logo" class="logo-small">
+    <h1 id="siteTitle">শিহাব এন্টারপ্রাইজ</h1>
+  </div>
+
+  <div class="header-buttons">
+    <button id="btnProducts">পণ্যসমূহ</button>
+    <button id="btnServices">আমাদের সেবা</button>
+    <button id="btnContact">যোগাযোগ করুন</button>
+    <div class="language-switcher">
+      <select id="langSelect">
+        <option value="bn" selected>বাংলা</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <h2 class="typing" id="typingText"></h2>
+  <p id="heroDesc">উন্নত মানের জিপসাম পাউডার ও জিপসাম বোর্ড আমদানি ও সরবরাহ করি।</p>
+</div>
+
+<div class="container">
+  <h2 id="productsTitle">📦 আমাদের পণ্যসমূহ</h2>
+  <div class="products" id="productCards"></div>
+
+  <h2 id="orderTitle">🛒 অর্ডার করুন</h2>
+  <p id="minOrderNote" style="text-align:center;font-weight:600;color:#d63384;">মিনিমাম অর্ডার: 100 ব্যাগ (100 ব্যাগ অর্ডার না করলে অর্ডার গ্রহণযোগ্য হবে না)</p>
+  <p id="gypsumNote" style="text-align:center; font-weight:600; color:#d63384; margin-bottom:20px;"></p>
+  <form id="orderForm">
+    <div class="form-group">
+      <label for="name" id="labelName">আপনার নাম</label>
+      <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone" id="labelPhone">ফোন নাম্বার</label>
+      <input type="tel" id="phone" placeholder="01XXXXXXXXX" required>
+    </div>
+
+    <div class="form-group">
+      <label id="labelProduct">পণ্য নির্বাচন করুন</label>
+      <div class="multi-select-list" id="multiSelectProductsList"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="address" id="labelAddress">ঠিকানা</label>
+      <textarea id="address" rows="3" placeholder="আপনার ঠিকানা লিখুন"></textarea>
+    </div>
+
+    <button type="button" class="order-btn" id="btnWhatsApp">WhatsApp এ অর্ডার</button>
+    <button type="button" class="order-btn" id="btnEmail">Email এ অর্ডার</button>
+  </form>
+</div>
+
+<footer id="footerText">© ২০২৬ শিহাব এন্টারপ্রাইজ | 📧Sihab5224@gmail.com</footer>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeModal()">✖</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+let language = 'bn';
+const langSelect = document.getElementById("langSelect");
+
+const texts = {
+  bn:{
+    siteTitle:"শিহাব এন্টারপ্রাইজ",
+    btnProducts:"পণ্যসমূহ",
+    btnServices:"আমাদের সেবা",
+    btnContact:"যোগাযোগ করুন",
+    heroText:"উন্নত মানের জিপসাম পণ্য সরবরাহকারী প্রতিষ্ঠান",
+    heroDesc:"উন্নত মানের জিপসাম পাউডার ও জিপসাম বোর্ড আমদানি ও সরবরাহ করি।",
+    productsTitle:"📦 আমাদের পণ্যসমূহ",
+    orderTitle:"🛒 অর্ডার করুন",
+    minOrder:"মিনিমাম অর্ডার: 100 ব্যাগ (100 ব্যাগ অর্ডার না করলে অর্ডার গ্রহণযোগ্য হবে না)",
+    labelName:"আপনার নাম",
+    labelPhone:"ফোন নাম্বার",
+    labelProduct:"পণ্য নির্বাচন করুন",
+    labelAddress:"ঠিকানা",
+    placeholderName:"আপনার নাম লিখুন",
+    placeholderPhone:"01XXXXXXXXX",
+    placeholderAddress:"আপনার ঠিকানা লিখুন",
+    btnWhatsApp:"WhatsApp এ অর্ডার",
+    btnEmail:"Email এ অর্ডার",
+    footer:"© ২০২৬ শিহাব এন্টারপ্রাইজ | 📧Sihab5224@gmail.com",
+  products:[
+  { 
+    name: "জিপসাম প্লাস্টার BK-90", 
+    details: "থাইল্যান্ডের পণ্য", 
+    desc: "জিপসাম প্লাস্টার BK-90 হলো উন্নত মানের কাস্টিং ও ফিনিশিং প্লাস্টার, যা মসৃণ, crack-free ফিনিশ দেয় এবং দ্রুত শক্ত হয়।"
+  },
+  { 
+    name: "জিপসম্যান - জিপসাম পাউডার", 
+    details: "ওমানের পণ্য", 
+    desc: "জিপসাম পাউডার দিয়ে দেয়াল/সিলিং ডেকোরেশন, মডেল মেকিং ও বোর্ড তৈরির কাজ সহজ হয়।"
+  },
+  { 
+    name: "প্লাস্টার অফ প্যারিস 5LB", 
+    details: "চীনের পণ্য", 
+    desc: "প্লাস্টার অফ প্যারিস (POP) হলো সূক্ষ্ম জিপসাম পাউডার যা পানি দিয়ে মিশালে দেয়ালে মসৃণ স্তর তৈরি করে।"
+  },
+  { 
+    name: "জিপসাম বোর্ড-1", 
+    details: "প্রিমিয়াম জিপসাম বোর্ড", 
+    desc: "জিপসাম বোর্ডটি দেয়াল ও সিলিং নির্মাণে ব্যবহৃত হয়।"
+  },
+  { 
+    name: "জিপসাম বোর্ড-2", 
+    details: "প্রিমিয়াম জিপসাম বোর্ড", 
+    desc: "দৃঢ় ও সমান পৃষ্ঠ প্রদানকারী জিপসাম বোর্ড।"
+  },
+  { 
+    name: "জিপসাম বোর্ড-3", 
+    details: "স্ট্যান্ডার্ড জিপসাম বোর্ড", 
+    desc: "স্ট্যান্ডার্ড জিপসাম বোর্ড সহজে ইনস্টল হয়।"
+  },
+  { 
+    name: "জিপসাম বোর্ড-4", 
+    details: "উচ্চমানের জিপসাম বোর্ড", 
+    desc: "প্রিমিয়াম জিপসাম বোর্ড শক্ত ও দীর্ঘস্থায়ী।"
+  },
+  { 
+    name: "জিপসাম পাউডার প্লাস্টার", 
+    details: "মিশর তৈরি", 
+    desc: "EGYPT-এর তৈরি জিপসাম পাউডার।"
+  },
+  { 
+    name: "জিপসাম প্লাস্টার-ডায়মন্ড", 
+    details: "সুপিরিয়ার ফিনিশিং প্লাস্টার", 
+    desc: "উচ্চমানের ফিনিশিং জিপসাম প্লাস্টার।"
+  }
+],
+units:[
+  {value:"টন", text:"টন"},
+  {value:"২৫ কেজি ব্যাগ", text:"২৫ কেজি ব্যাগ"},
+  {value:"৪০ কেজি ব্যাগ", text:"৪০ কেজি ব্যাগ"},
+  {value:"৫০ কেজি ব্যাগ", text:"৫০ কেজি ব্যাগ"}
+]
+  },
+  en:{
+    siteTitle:"Sihab Enterprise",
+    btnProducts:"Products",
+    btnServices:"Services",
+    btnContact:"Contact",
+    heroText:"Premium Gypsum Products Supplier",
+    heroDesc:"We import and supply high-quality gypsum powder and boards.",
+    productsTitle:"📦 Our Products",
+    orderTitle:"🛒 Place Order",
+    minOrder:"Minimum Order: 100 Bags (Order below 100 bags will not be accepted)",
+    labelName:"Your Name",
+    labelPhone:"Phone Number",
+    labelProduct:"Select Products",
+    labelAddress:"Address",
+    placeholderName:"Enter your name",
+    placeholderPhone:"01XXXXXXXXX",
+    placeholderAddress:"Enter your address",
+    btnWhatsApp:"Order via WhatsApp",
+    btnEmail:"Order via Email",
+    footer:"© 2026 Sihab Enterprise | 📧Sihab5224@gmail.com",
+     products:[
+      {name:"GYPSUM PLASTER BK-90", details:"Product of Thailand", desc:"GYPSUM PLASTER BK-90 is a premium casting and finishing plaster providing smooth, crack-free finish and fast setting."},
+      {name:"GYPSOMAN - GYPSUM POWDER", details:"Product of Oman", desc:"Gypsum powder for wall/ceiling decoration, model making, and board work."},
+      {name:"PLASTER OF PARIS 5LB", details:"Product of China", desc:"Plaster of Paris (POP) is a fine gypsum powder for smooth wall coating."},
+      {name:"GYPSUM BOARD-1", details:"Premium gypsum board", desc:"Used for wall and ceiling construction."},
+      {name:"GYPSUM BOARD-2", details:"Premium gypsum board", desc:"Provides strong and even surface."},
+      {name:"GYPSUM BOARD-3", details:"Standard gypsum board", desc:"Standard gypsum board, easy to install."},
+      {name:"GYPSUM BOARD-4", details:"High quality gypsum board", desc:"Premium gypsum board, strong and durable."},
+      {name:"GYPSUM POWDER PLASTER", details:"Made in Egypt", desc:"Gypsum powder made in Egypt."},
+      {name:"GYPSUM PLASTER-DIAMOND", details:"Superior finishing plaster", desc:"High-quality finishing gypsum plaster."}
+    ],
+    units:[
+      {value:"Ton", text:"Ton"},
+      {value:"25kg Bag", text:"25kg Bag"},
+      {value:"40kg Bag", text:"40kg Bag"},
+      {value:"50kg Bag", text:"50kg Bag"}
+    ]
+  }
+};
+
+function renderProducts(){
+  const container = document.getElementById("productCards");
+  container.innerHTML = "";
+  texts[language].products.forEach((p,i)=>{
+    const card = document.createElement("div");
+    card.className="product-card";
+    card.innerHTML=`
+      <img src="${i+1}.jpg" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.details}</p>
+      <button class="btn-see">${language==='bn'?'বিস্তারিত':'See More'}</button>
+    `;
+    card.querySelector(".btn-see").onclick=()=>openModal(i);
+    container.appendChild(card);
+  });
+}
+// Render Products
+function renderProducts(){
+  const container = document.getElementById("productCards");
+  container.innerHTML = "";
+  texts[language].products.forEach((p,i)=>{
+    const card = document.createElement("div");
+    card.className="product-card";
+    card.innerHTML=`
+      <img src="${i+1}.jpg" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.details}</p>
+      <button class="btn-see">${language==='bn'?'বিস্তারিত':'See More'}</button>
+    `;
+    card.querySelector(".btn-see").onclick=()=>openModal(i);
+    container.appendChild(card);
+  });
+}
+
+// Render Order List
+function renderOrderList(){
+  const listContainer = document.getElementById("multiSelectProductsList");
+  listContainer.innerHTML="";
+  texts[language].products.forEach(p=>{
+    const div = document.createElement("div");
+    div.className="multi-select-item";
+    const unitOptions = texts[language].units.map(u=>`<option value="${u.value}">${u.text}</option>`).join("");
+    div.innerHTML=`
+      <label>
+        <input type="checkbox" class="prodCheckbox">
+        <span>${p.name}</span>
+      </label>
+      <div class="qty-unit">
+        <input type="number" min="100" value="100" class="qtyInput">
+        <select>${unitOptions}</select>
+      </div>
+    `;
+    listContainer.appendChild(div);
+  });
+}
+
+// Update Gypsum Note
+function updateGypsumNote() {
+  const noteEl = document.getElementById("gypsumNote");
+  if(language==='bn'){
+    noteEl.textContent = "বিশেষ দ্রষ্টব্য:জিপসাম বোর্ড অর্ডার করার সময় সঠিক পরিমাণ ও মাপ জানতে WhatsApp/Email-এ যোগাযোগ করে অর্ডার প্লেস করতে হবে।";
+  } else {
+    noteEl.textContent = "Note: For Gypsum board orders, you must contact via WhatsApp/Email to confirm the correct quantity and size before placing the order.";
+  }
+}
+
+// Update Language
+function updateLanguage(){
+  document.getElementById("siteTitle").textContent = texts[language].siteTitle;
+  document.getElementById("btnProducts").textContent = texts[language].btnProducts;
+  document.getElementById("btnServices").textContent = texts[language].btnServices;
+  document.getElementById("btnContact").textContent = texts[language].btnContact;
+  document.getElementById("heroDesc").textContent = texts[language].heroDesc;
+  document.getElementById("productsTitle").textContent = texts[language].productsTitle;
+  document.getElementById("orderTitle").textContent = texts[language].orderTitle;
+  document.getElementById("minOrderNote").textContent = texts[language].minOrder;
+  document.getElementById("labelName").textContent = texts[language].labelName;
+  document.getElementById("labelPhone").textContent = texts[language].labelPhone;
+  document.getElementById("labelProduct").textContent = texts[language].labelProduct;
+  document.getElementById("labelAddress").textContent = texts[language].labelAddress;
+  document.getElementById("name").placeholder = texts[language].placeholderName;
+  document.getElementById("phone").placeholder = texts[language].placeholderPhone;
+  document.getElementById("address").placeholder = texts[language].placeholderAddress;
+  document.getElementById("btnWhatsApp").textContent = texts[language].btnWhatsApp;
+  document.getElementById("btnEmail").textContent = texts[language].btnEmail;
+  document.getElementById("footerText").textContent = texts[language].footer;
+  renderProducts();
+  renderOrderList();
+  updateGypsumNote(); // ✅ important
+}
+
+// Modal
+function openModal(i){
+  document.getElementById("modalTitle").textContent = texts[language].products[i].name;
+  document.getElementById("modalDesc").textContent = texts[language].products[i].desc;
+  document.getElementById("modalBg").style.display="flex";
+}
+function closeModal(){ document.getElementById("modalBg").style.display="none"; }
+
+// Hero Typing
+let idx=0;
+function typeHero(){
+  const el = document.getElementById("typingText");
+  const text = texts[language].heroText;
+  if(idx < text.length){
+    el.textContent += text[idx++];
+    setTimeout(typeHero, 80);
+  } else setTimeout(()=>{ el.textContent=""; idx=0; typeHero(); }, 3000);
+}
+typeHero();
+
+// Language Switch
+langSelect.addEventListener("change", ()=>{
+  language = langSelect.value;
+  updateLanguage();
+});
+
+// Redirect Buttons
+document.getElementById('btnProducts').addEventListener('click', ()=>{ window.location.href='buyer.html'; });
+document.getElementById('btnServices').addEventListener('click', ()=>{ window.location.href='service.html'; });
+document.getElementById('btnContact').addEventListener('click', ()=>{ window.location.href='contact.html'; });
+
+// Order Message
+function getMessage(){
+  const selectedItems = Array.from(document.querySelectorAll(".multi-select-item"))
+    .filter(item => item.querySelector(".prodCheckbox").checked);
+  let productMsg = selectedItems.map(item=>{
+    const name = item.querySelector("span").textContent;
+    const qty = item.querySelector(".qtyInput").value;
+    const unit = item.querySelector("select").value;
+    return `${name} (${qty} ${unit})`;
+  }).join(", ");
+  return `${texts[language].orderTitle}:%0A${texts[language].labelName}: ${document.getElementById("name").value}%0A${texts[language].labelPhone}: ${document.getElementById("phone").value}%0A${texts[language].labelProduct}: ${productMsg}%0A${texts[language].labelAddress}: ${document.getElementById("address").value}`;
+}
+
+document.getElementById("btnWhatsApp").onclick = ()=>{ 
+  window.open(`https://wa.me/8801872481201?text=${getMessage()}`, "_blank"); 
+}
+document.getElementById("btnEmail").onclick = ()=>{ 
+  window.location.href=`mailto:Sihab5224@gmail.com?subject=New Order&body=${getMessage().replace(/%0A/g,"\n")}`; 
+}
+
+// Initial Render
+updateLanguage();
+</script>
+</body>
+</html>
