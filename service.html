@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-en="Products | Sihab Enterprise" data-bn="পণ্যসমূহ | শিহাব এন্টারপ্রাইজ">পণ্যসমূহ | শিহাব এন্টারপ্রাইজ</title>
+<title>আমাদের সেবা - শিহাব এন্টারপ্রাইজ</title>
 
 <style>
-/* --- BASE STYLES --- */
-body{
-  margin:0;
+body{  
   font-family:'Segoe UI',sans-serif;
-  background:#f4f6f8;
+  background:#f7f8fa;
+  margin:0;
   color:#333;
 }
+
+/* HEADER */
 header{
-  background:linear-gradient(45deg,#0d6efd,#0a58ca);
+  background: linear-gradient(45deg,#0d6efd,#0a58ca);
   color:white;
   padding:20px;
   display:flex;
@@ -22,24 +23,29 @@ header{
   justify-content:space-between;
   flex-wrap:wrap;
 }
-header img.logo-small{
+
+header img.logo-small {
   height:50px;
   width:auto;
   border-radius:6px;
+  z-index:1;
 }
 header h1{
-  margin:0;
-  font-size:24px;
+  margin:0 15px;
+  font-size:22px;
   flex:1;
   text-align:left;
-  margin-left:10px;
+  z-index:1;
 }
-header div{
+
+/* HEADER BUTTONS */
+.header-buttons{
   display:flex;
+  gap:10px;
   flex-wrap:wrap;
-  gap:6px;
+  z-index:1;
 }
-header div button{
+.header-buttons button{
   background:white;
   color:#0d6efd;
   padding:8px 14px;
@@ -48,162 +54,79 @@ header div button{
   cursor:pointer;
   margin-top:10px;
   font-weight:600;
-  transition:0.2s;
-}
-header div button:hover{
-  opacity:0.9;
+  z-index:1;
 }
 
-/* --- CONTAINER --- */
+/* LANGUAGE BUTTONS */
+.lang-btn{
+  background:white;
+  color:#0d6efd;
+  padding:6px 12px;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+}
+.lang-btn.active{
+  background:#0d6efd;
+  color:white;
+}
+
+/* CONTAINER */
 .container{
   max-width:1000px;
-  margin:20px auto;
-  background:white;
+  margin:30px auto;
   padding:20px;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-h2{
-  color:#0d6efd;
-  text-align:center;
-  margin-bottom:15px;
 }
 
-/* --- PRODUCT CARDS --- */
-.products{
+/* TITLE */
+h2{
+  text-align:center;
+  color:#0d6efd;
+  margin-bottom:20px;
+}
+
+/* SERVICE GRID */
+.services{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
 }
-.product-card{
-  background:white;
-  border-radius:12px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.07);
-  padding:12px;
-  text-align:center;
-  transition:.25s;
-  cursor:pointer;
-}
-.product-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 30px rgba(0,0,0,0.12);
-}
-.product-card img{
-  width:100%;
-  height:auto;
-  max-height:150px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-bottom:10px;
-  border:1px solid #ddd;
-}
-.product-card h3{
-  margin:5px 0;
-  font-size:16px;
-  color:#0d6efd;
-}
-.product-card p{
-  font-size:13px;
-  color:#555;
-  margin-bottom:8px;
-}
-.product-card button{
-  background:#0d6efd;
-  color:white;
-  padding:6px 12px;
-  border:none;
-  border-radius:6px;
-  font-size:13px;
-  cursor:pointer;
-  transition:0.2s;
-}
-.product-card button:hover{
-  opacity:0.9;
-}
 
-/* --- MODAL --- */
-.modal-bg{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-.modal-box{
-  width:90%;
-  max-width:600px;
+/* CARD */
+.card{
   background:white;
-  border-radius:12px;
   padding:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.2);
-  text-align:left;
-  overflow-y:auto;
-  max-height:80vh;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+  transition:.2s;
+  text-align:center;
 }
-.modal-box h3{
-  margin-top:0;
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+.icon{
+  font-size:32px;
+  margin-bottom:10px;
+}
+.card h3{
+  margin:10px 0;
   color:#0d6efd;
 }
-.modal-box p{
-  line-height:1.6;
+.card p{
   font-size:14px;
-  color:#444;
-  margin-bottom:8px;
-}
-.modal-box ul{
-  margin:5px 0 15px 20px;
-  color:#444;
-  font-size:14px;
-}
-.modal-close{
-  float:right;
-  font-size:18px;
-  cursor:pointer;
-  color:#888;
-}
-.modal-close:hover{
-  color:#000;
-}
-
-/* --- CONTACT NOTE --- */
-.contact-note{
-  text-align:center;
-  margin:25px 0 20px 0;
-  font-size:14px;
-  color:#555;
   line-height:1.5;
 }
-.contact-btn{
-  display:inline-block;
-  margin-top:10px;
-  background:#0d6efd;
-  color:white;
-  padding:10px 20px;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:600;
-  font-size:14px;
-  transition:0.2s;
-  cursor:pointer;
-}
-.contact-btn:hover{
-  opacity:0.9;
-}
 
-/* --- FOOTER --- */
+/* FOOTER */
 footer{
   text-align:center;
   padding:15px;
-  color:#666;
-  margin-top:25px;
+  color:#777;
 }
 
-/* --- RESPONSIVE --- */
+/* MOBILE RESPONSIVE */
 @media(max-width:768px){
   header{
     flex-direction:column;
@@ -213,12 +136,17 @@ footer{
     text-align:center;
     margin:10px 0;
   }
-  header div{
-    justify-content:center;
-    gap:8px;
+  .header-buttons{
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
   }
-  .products{
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  .header-buttons button{
+    width:auto;
+    text-align:center;
+  }
+  .services{
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
 
@@ -226,328 +154,116 @@ footer{
   header{
     padding:15px;
   }
-  header div button{
-    width:100%;
-    text-align:center;
-    padding:8px 0;
+  .header-buttons button{
+    padding:8px 10px;
   }
-  .products{
-    grid-template-columns:1fr;
+  .lang-btn{
+    padding:6px 10px;
+    font-size:14px;
+  }
+  .services{
+    grid-template-columns: 1fr;
     gap:15px;
   }
 }
 </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
 <header>
   <img src="logo.png" alt="Logo" class="logo-small">
-  <h1 data-en="📦 Products | Sihab Enterprise" data-bn="📦 পণ্যসমূহ | শিহাব এন্টারপ্রাইজ">📦 পণ্যসমূহ | শিহাব এন্টারপ্রাইজ</h1>
-  <div>
-    <button onclick="location.href='index.html'" data-en="🏠 Home" data-bn="🏠 হোম">🏠 হোম</button>
-    <button onclick="setLanguage('bn')">বাংলা</button>
-    <button onclick="setLanguage('en')">English</button>
+  <h1 id="siteTitle">শিহাব এন্টারপ্রাইজ</h1>
+
+  <div class="header-buttons">
+    <button id="btnHome">🏠 হোম</button>
+    <!-- LANGUAGE BUTTONS -->
+    <button class="lang-btn active" id="btnBN">বাংলা</button>
+    <button class="lang-btn" id="btnEN">English</button>
   </div>
 </header>
 
-<!-- CONTAINER -->
 <div class="container">
-  <h2 data-en="Our Product Catalog" data-bn="আমাদের প্রোডাক্ট ক্যাটালগ">আমাদের প্রোডাক্ট ক্যাটালগ</h2>
-  <div class="products" id="productCards"></div>
-
-  <!-- CONTACT NOTE -->
-<div class="contact-note" 
-     data-en="We have many more products that could not be listed on the website. Contact us via email or WhatsApp for the full catalog and details." 
-     data-bn="আমাদের সংগ্রহে আরও অনেক বৈচিত্র্যময় পণ্য রয়েছে যা সবকটি ওয়েবসাইটে যুক্ত করা সম্ভব হয়নি। আমাদের পূর্ণাঙ্গ ক্যাটালগ এবং বিস্তারিত জানতে সরাসরি আমাদের ইমেইল কিংবা হোয়াটসঅ্যাপ নম্বরে যোগাযোগ করুন।">
-  আমাদের সংগ্রহে আরও অনেক বৈচিত্র্যময় পণ্য রয়েছে যা সবকটি ওয়েবসাইটে যুক্ত করা সম্ভব হয়নি।<br>
-  আমাদের পূর্ণাঙ্গ ক্যাটালগ এবং বিস্তারিত জানতে সরাসরি আমাদের ইমেইল কিংবা হোয়াটসঅ্যাপ নম্বরে যোগাযোগ করুন।<br>
-  <!-- Contact button inside note -->
-  <a href="contact.html" class="contact-btn" data-en="📩 Contact Us" data-bn="📩 Contact করুন">📩 Contact করুন</a>
+  <h2 id="pageTitle">আমাদের সেবা</h2>
+  <div class="services" id="servicesContainer"></div>
 </div>
 
-<!-- EXTRA CONTACT BUTTON AFTER NOTE -->
-<div style="text-align:center; margin:20px 0;">
-  <a href="contact.html" class="contact-btn" data-en="📩 Contact Us" data-bn="📩 Contact করুন">📩 Contact Us</a>
-</div>
-
-
-<!-- MODAL -->
-<div class="modal-bg" id="modalBg">
-  <div class="modal-box">
-    <span class="modal-close" onclick="closeModal()">✖</span>
-    <h3 id="modalTitle"></h3>
-    <div id="modalDesc"></div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer data-en="© 2026 Sihab Enterprise" data-bn="© ২০২৬ শিহাব এন্টারপ্রাইজ">© ২০২৬ শিহাব এন্টারপ্রাইজ</footer>
+<footer id="footerText">© ২০২৬ শিহাব এন্টারপ্রাইজ</footer>
 
 <script>
-// Language functions
-function setLanguage(lang){
-  localStorage.setItem('siteLanguage', lang);
-  applyLanguage(lang);
-}
-function applyLanguage(lang){
-  const elements=document.querySelectorAll('[data-en]');
-  elements.forEach(el=>{
-    el.textContent = (lang==='en') ? el.getAttribute('data-en') : el.getAttribute('data-bn');
-  });
-  showProducts();
-}
+let language = 'bn';
 
-// Product data
-const products = [
-{
-name:{bn:"GYPSUM PLASTER BK‑90", en:"GYPSUM PLASTER BK‑90"},
-details:{bn:"উচ্চ শক্তির কাস্টিং প্লাস্টার", en:"High strength casting plaster"},
-img:"1.jpg",
-desc:{
-bn:`<ul>
-<li><strong>উপাদান:</strong> উচ্চমানের জিপসাম</li>
-<li><strong>উৎপাদন দেশ:</strong> থাইল্যান্ড</li>
-<li><strong>ব্যবহার:</strong> দেয়াল, সিলিং ফিনিশিং, ক্রাফট, শিল্প প্রজেক্ট</li>
-<li><strong>প্যাকেজিং:</strong> 25kg ব্যাগ</li>
-<li><strong>ফিচার:</strong> দ্রুত সেটিং, crack-free finish</li>
-<li><strong>সেফটি:</strong> শিশুদের নাগালের বাইরে রাখুন, চোখে লাগলে পানি দিয়ে ধুয়ে ফেলুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো জায়গায় রাখুন, shelf life 12 মাস</li>
-</ul>`,
-en:`<ul>
-<li><strong>Material:</strong> Premium Gypsum</li>
-<li><strong>Country:</strong> Thailand</li>
-<li><strong>Use:</strong> Wall, Ceiling Finishing, Craft, Industrial Projects</li>
-<li><strong>Packaging:</strong> 25kg bag</li>
-<li><strong>Feature:</strong> Fast setting, crack-free finish</li>
-<li><strong>Safety:</strong> Keep away from children, rinse eyes if contact</li>
-<li><strong>Storage:</strong> Store in dry place, shelf life 12 months</li>
-</ul>`
-}
-},
-{
-name:{bn:"GYPSOMAN - GYPSUM POWDER", en:"GYPSOMAN - GYPSUM POWDER"},
-details:{bn:"মসৃণ ফিনিশ জিপসাম পাউডার", en:"Smooth finish gypsum powder"},
-img:"2.jpg",
-desc:{
-bn:`<ul>
-<li><strong>উপাদান:</strong> জিপসাম পাউডার</li>
-<li><strong>উৎপাদন দেশ:</strong> ওমান</li>
-<li><strong>ব্যবহার:</strong> দেয়াল/সিলিং ডেকোরেশন, মডেল মেকিং, বোর্ড তৈরির কাজ</li>
-<li><strong>প্যাকেজিং:</strong> 20kg ব্যাগ</li>
-<li><strong>ফিচার:</strong> ব্যবহার সহজ, ফিনিশ সুন্দর</li>
-<li><strong>সেফটি:</strong> শিশুর নাগালের বাইরে রাখুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো ও শীতল স্থানে সংরক্ষণ করুন</li>
-</ul>`,
-en:`<ul>
-<li><strong>Material:</strong> Gypsum powder</li>
-<li><strong>Country:</strong> Oman</li>
-<li><strong>Use:</strong> Wall/Ceiling Decoration, Model Making, Board Making</li>
-<li><strong>Packaging:</strong> 20kg bag</li>
-<li><strong>Feature:</strong> Easy to use, smooth finish</li>
-<li><strong>Safety:</strong> Keep away from children</li>
-<li><strong>Storage:</strong> Store in dry, cool place</li>
-</ul>`
-}
-},
-{
-name:{bn:"PLASTER OF PARIS 5LB", en:"PLASTER OF PARIS 5LB"},
-details:{bn:"ক্রাফট ও আর্টের জন্য ফাইন প্লাস্টার", en:"Fine plaster for art & craft"},
-img:"3.jpg",
-desc:{
-bn:`<ul>
-<li><strong>উপাদান:</strong> জিপসাম পাউডার</li>
-<li><strong>উৎপাদন দেশ:</strong> চীন</li>
-<li><strong>ব্যবহার:</strong> ক্রাফট, মডেলিং, দেয়াল সাজানো</li>
-<li><strong>প্যাকেজিং:</strong> 5LB প্যাক</li>
-<li><strong>ফিচার:</strong> মসৃণ ফিনিশ, দ্রুত সেটিং</li>
-<li><strong>সেফটি:</strong> চোখে লাগলে পানি দিয়ে ধুয়ে ফেলুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো স্থানে রাখুন</li>
-</ul>`,
-en:`<ul>
-<li><strong>Material:</strong> Gypsum powder</li>
-<li><strong>Country:</strong> China</li>
-<li><strong>Use:</strong> Craft, Modeling, Wall Decoration</li>
-<li><strong>Packaging:</strong> 5LB pack</li>
-<li><strong>Feature:</strong> Smooth finish, fast setting</li>
-<li><strong>Safety:</strong> Rinse eyes if contact</li>
-<li><strong>Storage:</strong> Store in dry place</li>
-</ul>`
-}
-},
-{
-name:{bn:"GYPSUM BOARD-1", en:"GYPSUM BOARD-1"},
-details:{bn:"প্রিমিয়াম জিপসাম বোর্ড", en:"Premium gypsum board"},
-img:"4.jpg",
-desc:{
-bn:`<ul>
-<li><strong>উপাদান:</strong> জিপসাম + ফাইবার</li>
-<li><strong>ব্যবহার:</strong> দেয়াল ও সিলিং নির্মাণ</li>
-<li><strong>প্যাকেজিং:</strong> 8ft x 4ft বোর্ড</li>
-<li><strong>ফিচার:</strong> হালকা, দৃঢ়, পেইন্ট প্রস্তুত</li>
-<li><strong>সেফটি:</strong> ইনস্টলেশনের সময় হেলমেট ও গ্লাভস ব্যবহার করুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো স্থানে রাখুন, সরাসরি মাটির উপর রাখবেন না</li>
-</ul>`,
-en:`<ul>
-<li><strong>Material:</strong> Gypsum + Fiber</li>
-<li><strong>Use:</strong> Wall & Ceiling Construction</li>
-<li><strong>Packaging:</strong> 8ft x 4ft Board</li>
-<li><strong>Feature:</strong> Light, strong, paint-ready</li>
-<li><strong>Safety:</strong> Use helmet & gloves during installation</li>
-<li><strong>Storage:</strong> Store in dry place, avoid direct ground contact</li>
-</ul>`
-}
-},
-{
-name:{bn:"GYPSUM BOARD-2", en:"GYPSUM BOARD-2"},
-details:{bn:"দৃঢ় জিপসাম বোর্ড", en:"Durable gypsum board"},
-img:"5.jpg",
-desc:{
-bn:`<ul>
-<li><strong>উপাদান:</strong> জিপসাম + ফাইবার</li>
-<li><strong>ব্যবহার:</strong> অভ্যন্তরীণ দেয়াল ও ছাদ নির্মাণ</li>
-<li><strong>প্যাকেজিং:</strong> 8ft x 4ft বোর্ড</li>
-<li><strong>ফিচার:</strong> দৃঢ়, সমান পৃষ্ঠ</li>
-<li><strong>সেফটি:</strong> ইনস্টলেশনের সময় সুরক্ষা সরঞ্জাম ব্যবহার করুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো ও শীতল স্থানে রাখুন</li>
-</ul>`,
-en:`<ul>
-<li><strong>Material:</strong> Gypsum + Fiber</li>
-<li><strong>Use:</strong> Interior wall & ceiling construction</li>
-<li><strong>Packaging:</strong> 8ft x 4ft Board</li>
-<li><strong>Feature:</strong> Strong, smooth surface</li>
-<li><strong>Safety:</strong> Use safety gear during installation</li>
-<li><strong>Storage:</strong> Store in dry, cool place</li>
-</ul>`
-}
-},
-{
-name:{bn:"GYPSUM BOARD-3", en:"GYPSUM BOARD-3"},
-details:{bn:"স্ট্যান্ডার্ড জিপসাম বোর্ড", en:"Standard gypsum board"},
-img:"6.jpg",
-desc:{
-bn:`<ul>
-<li><strong>উপাদান:</strong> জিপসাম + ফাইবার</li>
-<li><strong>ব্যবহার:</strong> দেয়াল/সিলিং পার্টিশন</li>
-<li><strong>প্যাকেজিং:</strong> 8ft x 4ft বোর্ড</li>
-<li><strong>ফিচার:</strong> সহজ ইনস্টলেশন, টেকসই</li>
-<li><strong>সেফটি:</strong> ইনস্টলেশনের সময় সুরক্ষা সরঞ্জাম ব্যবহার করুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো স্থানে রাখুন</li>
-</ul>`,
-en:`<ul>
-<li><strong>Material:</strong> Gypsum + Fiber</li>
-<li><strong>Use:</strong> Wall/Ceiling Partition</li>
-<li><strong>Packaging:</strong> 8ft x 4ft Board</li>
-<li><strong>Feature:</strong> Easy installation, durable</li>
-<li><strong>Safety:</strong> Use safety gear during installation</li>
-<li><strong>Storage:</strong> Store in dry place</li>
-</ul>`
-}
-},
-{
-name:{bn:"GYPSUM BOARD-4", en:"GYPSUM BOARD-4"},
-details:{bn:"উচ্চ মানের জিপসাম বোর্ড", en:"High quality gypsum board"},
-img:"7.jpg",
-desc:{
-bn:`<ul>
-<li><strong>উপাদান:</strong> জিপসাম + ফাইবার</li>
-<li><strong>ব্যবহার:</strong> অভ্যন্তরীণ দেয়াল ও সিলিং</li>
-<li><strong>প্যাকেজিং:</strong> 8ft x 4ft বোর্ড</li>
-<li><strong>ফিচার:</strong> প্রিমিয়াম, শক্ত ও দীর্ঘস্থায়ী</li>
-<li><strong>সেফটি:</strong> ইনস্টলেশনের সময় সুরক্ষা সরঞ্জাম ব্যবহার করুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো স্থানে রাখুন</li>
-</ul>`,
-en:`<ul>
-<li><strong>Material:</strong> Gypsum + Fiber</li>
-<li><strong>Use:</strong> Interior wall & ceiling</li>
-<li><strong>Packaging:</strong> 8ft x 4ft Board</li>
-<li><strong>Feature:</strong> Premium, strong & long-lasting</li>
-<li><strong>Safety:</strong> Use safety gear during installation</li>
-<li><strong>Storage:</strong> Store in dry place</li>
-</ul>`
-}
-},
-{
-name:{bn:"GYPSUM POWDER PLASTER", en:"GYPSUM POWDER PLASTER"},
-details:{bn:"বহু-উদ্দেশ্য জিপসাম পাউডার", en:"Multi-purpose gypsum powder"},
-img:"8.jpg",
-desc:{
-bn:`<ul>
-<li><strong>উপাদান:</strong> জিপসাম পাউডার</li>
-<li><strong>উৎপাদন দেশ:</strong> ইজিপ্ট</li>
-<li><strong>ব্যবহার:</strong> সিলিং বা ডেকোরেশন কাজে ব্যবহার</li>
-<li><strong>প্যাকেজিং:</strong> 20kg ব্যাগ</li>
-<li><strong>ফিচার:</strong> দ্রুত সেটিং, মসৃণ ফিনিশ</li>
-<li><strong>সেফটি:</strong> শিশুর নাগালের বাইরে রাখুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো স্থানে রাখুন</li>
-</ul>`,
-en:`<ul>
-<li><strong>Material:</strong> Gypsum powder</li>
-<li><strong>Country:</strong> Egypt</li>
-<li><strong>Use:</strong> Ceiling or decoration work</li>
-<li><strong>Packaging:</strong> 20kg bag</li>
-<li><strong>Feature:</strong> Fast setting, smooth finish</li>
-<li><strong>Safety:</strong> Keep away from children</li>
-<li><strong>Storage:</strong> Store in dry place</li>
-</ul>`
-}
-},
-{
-name:{bn:"ART & CRAFT GYPSUM", en:"ART & CRAFT GYPSUM"},
-details:{bn:"ক্রাফট ও আর্ট প্রজেক্টের জন্য", en:"For craft & art projects"},
-img:"9.jpg",
-desc:{
-bn:`<ul>
-<li><strong>উপাদান:</strong> ফাইন জিপসাম</li>
-<li><strong>উৎপাদন দেশ:</strong> থাইল্যান্ড</li>
-<li><strong>ব্যবহার:</strong> ক্রাফট, মডেল মেকিং, ছোট শিল্প প্রকল্প</li>
-<li><strong>প্যাকেজিং:</strong> 5kg প্যাক</li>
-<li><strong>ফিচার:</strong> মসৃণ ফিনিশ, সহজ ব্যবহার</li>
-<li><strong>সেফটি:</strong> শিশুদের নাগালের বাইরে রাখুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো স্থানে রাখুন</li>
-</ul>`,
-en:`<ul>
-<li><strong>Material:</strong> Fine gypsum</li>
-<li><strong>Country:</strong> Thailand</li>
-<li><strong>Use:</strong> Craft, model making, small art projects</li>
-<li><strong>Packaging:</strong> 5kg pack</li>
-<li><strong>Feature:</strong> Smooth finish, easy to use</li>
-<li><strong>Safety:</strong> Keep away from children</li>
-<li><strong>Storage:</strong> Store in dry place</li>
-</ul>`
-}
-}
-];
+const texts = {
+  bn:{
+    siteTitle:"শিহাব এন্টারপ্রাইজ",
+    btnHome:"🏠 হোম",
+    pageTitle:"আমাদের সেবা",
+    footer:"© ২০২৬ শিহাব এন্টারপ্রাইজ",
+    services:[
+      {icon:"🏗️", title:"জিপসাম পণ্য সরবরাহ", desc:"উন্নত মানের জিপসাম পাউডার, প্লাস্টার ও বোর্ড সরবরাহ করা হয় নির্মাণ কাজের জন্য।"},
+      {icon:"🚚", title:"দ্রুত ডেলিভারি", desc:"অর্ডার অনুযায়ী দ্রুত ও নিরাপদ ডেলিভারি নিশ্চিত করা হয়।"},
+      {icon:"🛠️", title:"টেকনিক্যাল সহায়তা", desc:"পণ্য ব্যবহারের সঠিক নির্দেশনা ও পরামর্শ প্রদান করা হয়।"},
+      {icon:"🌍", title:"আমদানি সেবা", desc:"বিদেশ থেকে উন্নত মানের জিপসাম কাঁচামাল ও পণ্য আমদানি করে গ্রাহকদের সরবরাহ করা হয়।"},
+      {icon:"📦", title:"বাল্ক অর্ডার সাপোর্ট", desc:"বড় পরিমাণ অর্ডারের জন্য বিশেষ মূল্য ও সরবরাহ সুবিধা প্রদান করা হয়।"},
+      {icon:"🤝", title:"গ্রাহক সাপোর্ট", desc:"যেকোনো প্রশ্ন বা সহায়তার জন্য দ্রুত কাস্টমার সাপোর্ট প্রদান করা হয়।"}
+    ]
+  },
+  en:{
+    siteTitle:"Sihab Enterprise",
+    btnHome:"🏠 Home",
+    pageTitle:"Our Services",
+    footer:"© 2026 Sihab Enterprise",
+    services:[
+      {icon:"🏗️", title:"Gypsum Products Supply", desc:"High-quality gypsum powder, plaster and boards supplied for construction purposes."},
+      {icon:"🚚", title:"Fast Delivery", desc:"Orders are delivered quickly and safely according to requirements."},
+      {icon:"🛠️", title:"Technical Support", desc:"Correct instructions and advice are provided for product use."},
+      {icon:"🌍", title:"Import Service", desc:"High-quality gypsum raw materials and products imported from abroad."},
+      {icon:"📦", title:"Bulk Order Support", desc:"Special prices and facilities provided for large quantity orders."},
+      {icon:"🤝", title:"Customer Support", desc:"Quick customer support for any questions or assistance."}
+    ]
+  }
+};
 
-// Render products
-function showProducts(){
-  const container=document.getElementById("productCards");
-  container.innerHTML="";
-  const lang=localStorage.getItem('siteLanguage') || 'bn';
-  products.forEach((p,i)=>{
-    const card=document.createElement("div");
-    card.className="product-card";
-    card.innerHTML=`<img src="${p.img}" alt="${p.name[lang]}"><h3>${p.name[lang]}</h3><p>${p.details[lang]}</p><button onclick="openModal(${i})" data-en="Details" data-bn="বিস্তারিত">${lang==='en'?'Details':'বিস্তারিত'}</button>`;
-    container.appendChild(card);
+function renderServices(){
+  document.getElementById('siteTitle').textContent = texts[language].siteTitle;
+  document.getElementById('btnHome').textContent = texts[language].btnHome;
+  document.getElementById('pageTitle').textContent = texts[language].pageTitle;
+  document.getElementById('footerText').textContent = texts[language].footer;
+
+  const container = document.getElementById('servicesContainer');
+  container.innerHTML = '';
+  texts[language].services.forEach(s=>{
+    const div = document.createElement('div');
+    div.className='card';
+    div.innerHTML = `<div class="icon">${s.icon}</div>
+                     <h3>${s.title}</h3>
+                     <p>${s.desc}</p>`;
+    container.appendChild(div);
   });
 }
 
-// Modal
-function openModal(i){
-  const lang=localStorage.getItem('siteLanguage') || 'bn';
-  document.getElementById("modalTitle").textContent=products[i].name[lang];
-  document.getElementById("modalDesc").innerHTML=products[i].desc[lang];
-  document.getElementById("modalBg").style.display="flex";
-}
-function closeModal(){
-  document.getElementById("modalBg").style.display="none";
-}
+// Header buttons redirect
+document.getElementById('btnHome').addEventListener('click', ()=>{ window.location.href='index.html'; });
 
-// On load
-document.addEventListener('DOMContentLoaded',()=>{
-  const lang=localStorage.getItem('siteLanguage') || 'bn';
-  applyLanguage(lang);
+// LANGUAGE BUTTONS
+const btnBN = document.getElementById('btnBN');
+const btnEN = document.getElementById('btnEN');
+
+btnBN.addEventListener('click', ()=>{
+  language='bn';
+  btnBN.classList.add('active');
+  btnEN.classList.remove('active');
+  renderServices();
 });
+btnEN.addEventListener('click', ()=>{
+  language='en';
+  btnEN.classList.add('active');
+  btnBN.classList.remove('active');
+  renderServices();
+});
+
+// Initial render
+renderServices();
 </script>
 
 </body>
