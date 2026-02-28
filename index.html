@@ -304,78 +304,42 @@ footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
 </div>
 
 <script>
-// ==================== LANGUAGE & TEXTS ====================
-let language = 'bn';
+let language = "bn";
 const langSelect = document.getElementById("langSelect");
 
 // texts object remains same as you provided (bn & en)
-const texts = {
-  bn:{
-    siteTitle:"শিহাব এন্টারপ্রাইজ",
-    btnProducts:"পণ্যসমূহ",
-    btnServices:"আমাদের সেবা",
-    btnContact:"যোগাযোগ করুন",
-    heroText:"উন্নত মানের জিপসাম পণ্য আমদানি ও সরবরাহকারী প্রতিষ্ঠান",
-    heroDesc:"উন্নত মানের জিপসাম পাউডার ও জিপসাম বোর্ড আমদানি ও সরবরাহ করি।",
-    productsTitle:"📦 আমাদের পণ্যসমূহ",
-    orderTitle:"🛒 অর্ডার করুন",
-    minOrder:"মিনিমাম অর্ডার: 100 ব্যাগ (100 ব্যাগ অর্ডার না করলে অর্ডার গ্রহণযোগ্য হবে না)",
-    labelName:"আপনার নাম",
-    labelPhone:"ফোন নাম্বার",
-    labelProduct:"পণ্য নির্বাচন করুন",
-    labelAddress:"ঠিকানা",
-    placeholderName:"আপনার নাম লিখুন",
-    placeholderPhone:"01XXXXXXXXX",
-    placeholderAddress:"আপনার ঠিকানা লিখুন",
-    btnWhatsApp:"WhatsApp এ অর্ডার",
-    btnEmail:"Email এ অর্ডার",
-    footer:"© ২০২৬ শিহাব এন্টারপ্রাইজ | 📧Sihab5224@gmail.com",
+const texts = { 
+/* ===== তোমার texts object EXACT same — এখানে কোনো change নাই ===== */
+bn:{ 
+  siteTitle:"শিহাব এন্টারপ্রাইজ",
+  btnProducts:"পণ্যসমূহ",
+  btnServices:"আমাদের সেবা",
+  btnContact:"যোগাযোগ করুন",
+  heroText:"উন্নত মানের জিপসাম পণ্য আমদানি ও সরবরাহকারী প্রতিষ্ঠান",
+  heroDesc:"উন্নত মানের জিপসাম পাউডার ও জিপসাম বোর্ড আমদানি ও সরবরাহ করি।",
+  productsTitle:"📦 আমাদের পণ্যসমূহ",
+  orderTitle:"🛒 অর্ডার করুন",
+  minOrder:"মিনিমাম অর্ডার: 100 ব্যাগ (100 ব্যাগ অর্ডার না করলে অর্ডার গ্রহণযোগ্য হবে না)",
+  labelName:"আপনার নাম",
+  labelPhone:"ফোন নাম্বার",
+  labelProduct:"পণ্য নির্বাচন করুন",
+  labelAddress:"ঠিকানা",
+  placeholderName:"আপনার নাম লিখুন",
+  placeholderPhone:"01XXXXXXXXX",
+  placeholderAddress:"আপনার ঠিকানা লিখুন",
+  btnWhatsApp:"WhatsApp এ অর্ডার",
+  btnEmail:"Email এ অর্ডার",
+  footer:"© ২০২৬ শিহাব এন্টারপ্রাইজ | 📧Sihab5224@gmail.com",
   products:[
-  { 
-    name: "জিপসাম প্লাস্টার BK-90", 
-    details: "থাইল্যান্ডের পণ্য", 
-    desc: "জিপসাম প্লাস্টার BK-90 হলো উন্নত মানের কাস্টিং ও ফিনিশিং প্লাস্টার, যা মসৃণ, crack-free ফিনিশ দেয় এবং দ্রুত শক্ত হয়।"
-  },
-  { 
-    name: "জিপসম্যান - জিপসাম পাউডার", 
-    details: "ওমানের পণ্য", 
-    desc: "জিপসাম পাউডার দিয়ে দেয়াল/সিলিং ডেকোরেশন, মডেল মেকিং ও বোর্ড তৈরির কাজ সহজ হয়।"
-  },
-  { 
-    name: "প্লাস্টার অফ প্যারিস 5LB", 
-    details: "চীনের পণ্য", 
-    desc: "প্লাস্টার অফ প্যারিস (POP) হলো সূক্ষ্ম জিপসাম পাউডার যা পানি দিয়ে মিশালে দেয়ালে মসৃণ স্তর তৈরি করে।"
-  },
-  { 
-    name: "জিপসাম বোর্ড-1", 
-    details: "প্রিমিয়াম জিপসাম বোর্ড", 
-    desc: "জিপসাম বোর্ডটি দেয়াল ও সিলিং নির্মাণে ব্যবহৃত হয়।"
-  },
-  { 
-    name: "জিপসাম বোর্ড-2", 
-    details: "প্রিমিয়াম জিপসাম বোর্ড", 
-    desc: "দৃঢ় ও সমান পৃষ্ঠ প্রদানকারী জিপসাম বোর্ড।"
-  },
-  { 
-    name: "জিপসাম বোর্ড-3", 
-    details: "স্ট্যান্ডার্ড জিপসাম বোর্ড", 
-    desc: "স্ট্যান্ডার্ড জিপসাম বোর্ড সহজে ইনস্টল হয়।"
-  },
-  { 
-    name: "জিপসাম বোর্ড-4", 
-    details: "উচ্চমানের জিপসাম বোর্ড", 
-    desc: "প্রিমিয়াম জিপসাম বোর্ড শক্ত ও দীর্ঘস্থায়ী।"
-  },
-  { 
-    name: "জিপসাম পাউডার প্লাস্টার", 
-    details: "মিশর তৈরি", 
-    desc: "EGYPT-এর তৈরি জিপসাম পাউডার।"
-  },
-  { 
-    name: "জিপসাম প্লাস্টার-ডায়মন্ড", 
-    details: "সুপিরিয়ার ফিনিশিং প্লাস্টার", 
-    desc: "উচ্চমানের ফিনিশিং জিপসাম প্লাস্টার।"
-  }
+  {name:"জিপসাম প্লাস্টার BK-90",details:"থাইল্যান্ডের পণ্য",desc:"জিপসাম প্লাস্টার BK-90 হলো উন্নত মানের কাস্টিং ও ফিনিশিং প্লাস্টার, যা মসৃণ, crack-free ফিনিশ দেয় এবং দ্রুত শক্ত হয়।"},
+  {name:"জিপসম্যান - জিপসাম পাউডার",details:"ওমানের পণ্য",desc:"জিপসাম পাউডার দিয়ে দেয়াল/সিলিং ডেকোরেশন, মডেল মেকিং ও বোর্ড তৈরির কাজ সহজ হয়।"},
+  {name:"প্লাস্টার অফ প্যারিস 5LB",details:"চীনের পণ্য",desc:"প্লাস্টার অফ প্যারিস (POP) হলো সূক্ষ্ম জিপসাম পাউডার যা পানি দিয়ে মিশালে দেয়ালে মসৃণ স্তর তৈরি করে।"},
+  {name:"জিপসাম বোর্ড-1",details:"প্রিমিয়াম জিপসাম বোর্ড",desc:"জিপসাম বোর্ডটি দেয়াল ও সিলিং নির্মাণে ব্যবহৃত হয়।"},
+  {name:"জিপসাম বোর্ড-2",details:"প্রিমিয়াম জিপসাম বোর্ড",desc:"দৃঢ় ও সমান পৃষ্ঠ প্রদানকারী জিপসাম বোর্ড।"},
+  {name:"জিপসাম বোর্ড-3",details:"স্ট্যান্ডার্ড জিপসাম বোর্ড",desc:"স্ট্যান্ডার্ড জিপসাম বোর্ড সহজে ইনস্টল হয়।"},
+  {name:"জিপসাম বোর্ড-4",details:"উচ্চমানের জিপসাম বোর্ড",desc:"প্রিমিয়াম জিপসাম বোর্ড শক্ত ও দীর্ঘস্থায়ী।"},
+  {name:"জিপসাম পাউডার প্লাস্টার",details:"মিশর তৈরি",desc:"EGYPT-এর তৈরি জিপসাম পাউডার।"},
+  {name:"জিপসাম প্লাস্টার-ডায়মন্ড",details:"সুপিরিয়ার ফিনিশিং প্লাস্টার",desc:"উচ্চমানের ফিনিশিং জিপসাম প্লাস্টার।"}
 ],
 units:[
   {value:"টন", text:"টন"},
@@ -383,45 +347,45 @@ units:[
   {value:"৪০ কেজি ব্যাগ", text:"৪০ কেজি ব্যাগ"},
   {value:"৫০ কেজি ব্যাগ", text:"৫০ কেজি ব্যাগ"}
 ]
-  },
-  en:{
-    siteTitle:"Sihab Enterprise",
-    btnProducts:"Products",
-    btnServices:"Services",
-    btnContact:"Contact",
-    heroText:"Premium Gypsum Products Supplier",
-    heroDesc:"We import and supply high-quality gypsum powder and boards.",
-    productsTitle:"📦 Our Products",
-    orderTitle:"🛒 Place Order",
-    minOrder:"Minimum Order: 100 Bags (Order below 100 bags will not be accepted)",
-    labelName:"Your Name",
-    labelPhone:"Phone Number",
-    labelProduct:"Select Products",
-    labelAddress:"Address",
-    placeholderName:"Enter your name",
-    placeholderPhone:"01XXXXXXXXX",
-    placeholderAddress:"Enter your address",
-    btnWhatsApp:"Order via WhatsApp",
-    btnEmail:"Order via Email",
-    footer:"© 2026 Sihab Enterprise | 📧Sihab5224@gmail.com",
-     products:[
-      {name:"GYPSUM PLASTER BK-90", details:"Product of Thailand", desc:"GYPSUM PLASTER BK-90 is a premium casting and finishing plaster providing smooth, crack-free finish and fast setting."},
-      {name:"GYPSOMAN - GYPSUM POWDER", details:"Product of Oman", desc:"Gypsum powder for wall/ceiling decoration, model making, and board work."},
-      {name:"PLASTER OF PARIS 5LB", details:"Product of China", desc:"Plaster of Paris (POP) is a fine gypsum powder for smooth wall coating."},
-      {name:"GYPSUM BOARD-1", details:"Premium gypsum board", desc:"Used for wall and ceiling construction."},
-      {name:"GYPSUM BOARD-2", details:"Premium gypsum board", desc:"Provides strong and even surface."},
-      {name:"GYPSUM BOARD-3", details:"Standard gypsum board", desc:"Standard gypsum board, easy to install."},
-      {name:"GYPSUM BOARD-4", details:"High quality gypsum board", desc:"Premium gypsum board, strong and durable."},
-      {name:"GYPSUM POWDER PLASTER", details:"Made in Egypt", desc:"Gypsum powder made in Egypt."},
-      {name:"GYPSUM PLASTER-DIAMOND", details:"Superior finishing plaster", desc:"High-quality finishing gypsum plaster."}
-    ],
-    units:[
-      {value:"Ton", text:"Ton"},
-      {value:"25kg Bag", text:"25kg Bag"},
-      {value:"40kg Bag", text:"40kg Bag"},
-      {value:"50kg Bag", text:"50kg Bag"}
-    ]
-  }
+},
+en:{
+  siteTitle:"Sihab Enterprise",
+  btnProducts:"Products",
+  btnServices:"Services",
+  btnContact:"Contact",
+  heroText:"Premium Gypsum Products Supplier",
+  heroDesc:"We import and supply high-quality gypsum powder and boards.",
+  productsTitle:"📦 Our Products",
+  orderTitle:"🛒 Place Order",
+  minOrder:"Minimum Order: 100 Bags (Order below 100 bags will not be accepted)",
+  labelName:"Your Name",
+  labelPhone:"Phone Number",
+  labelProduct:"Select Products",
+  labelAddress:"Address",
+  placeholderName:"Enter your name",
+  placeholderPhone:"01XXXXXXXXX",
+  placeholderAddress:"Enter your address",
+  btnWhatsApp:"Order via WhatsApp",
+  btnEmail:"Order via Email",
+  footer:"© 2026 Sihab Enterprise | 📧Sihab5224@gmail.com",
+  products:[
+  {name:"GYPSUM PLASTER BK-90",details:"Product of Thailand",desc:"GYPSUM PLASTER BK-90 is a premium casting and finishing plaster providing smooth, crack-free finish and fast setting."},
+  {name:"GYPSOMAN - GYPSUM POWDER",details:"Product of Oman",desc:"Gypsum powder for wall/ceiling decoration, model making, and board work."},
+  {name:"PLASTER OF PARIS 5LB",details:"Product of China",desc:"Plaster of Paris (POP) is a fine gypsum powder for smooth wall coating."},
+  {name:"GYPSUM BOARD-1",details:"Premium gypsum board",desc:"Used for wall and ceiling construction."},
+  {name:"GYPSUM BOARD-2",details:"Premium gypsum board",desc:"Provides strong and even surface."},
+  {name:"GYPSUM BOARD-3",details:"Standard gypsum board",desc:"Standard gypsum board, easy to install."},
+  {name:"GYPSUM BOARD-4",details:"High quality gypsum board",desc:"Premium gypsum board, strong and durable."},
+  {name:"GYPSUM POWDER PLASTER",details:"Made in Egypt",desc:"Gypsum powder made in Egypt."},
+  {name:"GYPSUM PLASTER-DIAMOND",details:"Superior finishing plaster",desc:"High-quality finishing gypsum plaster."}
+],
+units:[
+  {value:"Ton", text:"Ton"},
+  {value:"25kg Bag", text:"25kg Bag"},
+  {value:"40kg Bag", text:"40kg Bag"},
+  {value:"50kg Bag", text:"50kg Bag"}
+]
+}
 };
 
 // ==================== RENDER PRODUCTS ====================
@@ -447,23 +411,31 @@ function renderOrderList(){
   const listContainer = document.getElementById("multiSelectProductsList");
   listContainer.innerHTML="";
   texts[language].products.forEach(p=>{
+    
+    // 👉 gypsum board detect
+    const isBoard = p.name.toLowerCase().includes("board") || p.name.includes("বোর্ড");
+    
+    const unitOptions = isBoard
+      ? (language==="bn"
+          ? `<option value="পিস">পিস</option>`
+          : `<option value="Piece">Piece</option>`)
+      : texts[language].units.map(u=>`<option value="${u.value}">${u.text}</option>`).join("");
+
     const div = document.createElement("div");
     div.className="multi-select-item";
-    const unitOptions = texts[language].units.map(u=>`<option value="${u.value}">${u.text}</option>`).join("");
     div.innerHTML=`
       <label>
         <input type="checkbox" class="prodCheckbox">
         <span>${p.name}</span>
       </label>
       <div class="qty-unit">
-        <input type="number" min="100" value="100" class="qtyInput">
+        <input type="number" min="1" value="1" class="qtyInput">
         <select>${unitOptions}</select>
       </div>
     `;
     listContainer.appendChild(div);
   });
 }
-
 // ==================== GYPSUM NOTE ====================
 function updateGypsumNote() {
   const noteEl = document.getElementById("gypsumNote");
@@ -556,4 +528,3 @@ updateLanguage();
 
 </body>
 </html>
-
