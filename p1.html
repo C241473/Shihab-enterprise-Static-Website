@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GYPSUM PLASTER BK-90</title>
+
+<style>
+body {
+  font-family: Poppins, sans-serif;
+  background: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.card {
+  width: 420px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 22px;
+  color: #0d6efd;
+  margin: 10px 0;
+}
+
+#info {
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-left: 20px;
+}
+
+button {
+  background: #0d6efd;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background: #084298;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.order-box {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.order-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #0d6efd;
+}
+
+.note {
+  font-size: 12px;
+  color: red;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <button onclick="switchLang()">বাংলা / English</button>
+
+  <h1 id="title">GYPSUM PLASTER BK-90</h1>
+
+  <img src="1.jpg">
+
+  <div id="info">
+    <!-- Product info dynamically loaded -->
+  </div>
+
+  <!-- ORDER FORM -->
+  <div class="order-box">
+
+    <div class="order-title" id="orderTitle">🛒 Place Order</div>
+
+    <div class="note" id="minOrder">Minimum Order: 100 Bags</div>
+
+    <label id="labelName">Your Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label id="labelPhone">Phone Number</label>
+    <input type="text" id="phone" placeholder="01XXXXXXXXX">
+
+    <label id="labelQty">Quantity</label>
+    <input type="number" id="qty" value="1" min="1">
+
+    <label id="labelUnit">Unit</label>
+     <select id="unit">
+      <option value="Ton">Ton</option>
+      <option value="25Kg bag">25Kg bag</option>
+      <option value="40Kg bag">40Kg bag</option>
+      <option value="50Kg bag">50Kg bag</option>
+    </select>
+
+    <label id="labelAddress">Address</label>
+    <textarea id="address" placeholder="Enter your address"></textarea>
+
+    <div style="text-align:center">
+      <button id="btnWhatsApp">Order via WhatsApp</button>
+      <button id="btnEmail">Order via Email</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+let lang = "en";
+
+const texts = {
+  en: {
+    title: "GYPSUM PLASTER BK-90",
+    info: `<ul>
+<li><strong>Material:</strong> Premium Gypsum</li>
+<li><strong>Country:</strong> Thailand</li>
+<li><strong>Use:</strong> Wall, Ceiling Finishing, Craft, Industrial Projects</li>
+<li><strong>Feature:</strong> Fast setting, crack-free finish</li>
+<li><strong>Safety:</strong> Keep away from children, rinse eyes if contact</li>
+<li><strong>Storage:</strong> Store in dry place, shelf life 12 months</li>
+</ul>`,
+    orderTitle: "🛒 Place Order",
+    minOrder: "Minimum Order: 100 Bags",
+    labelName: "Your Name",
+    labelPhone: "Phone Number",
+    labelQty: "Quantity",
+    labelUnit: "Unit",
+    unitOptions:   ["Ton", "25Kg bag", "40Kg bag", "50Kg bag"],
+    labelAddress: "Address",
+    addressPlaceholder: "Enter your address",
+    btnWhatsApp: "Order via WhatsApp",
+    btnEmail: "Order via Email"
+  },
+  bn: {
+    title: "জিপসাম প্লাস্টার BK-90",
+    info: `<ul>
+<li><strong>উপাদান:</strong> উচ্চমানের জিপসাম</li>
+<li><strong>উৎপাদন দেশ:</strong> থাইল্যান্ড</li>
+<li><strong>ব্যবহার:</strong> দেয়াল, সিলিং ফিনিশিং, ক্রাফট, শিল্প প্রজেক্ট</li>
+<li><strong>ফিচার:</strong> দ্রুত সেটিং, crack-free finish</li>
+<li><strong>সেফটি:</strong> শিশুদের নাগালের বাইরে রাখুন, চোখে লাগলে পানি দিয়ে ধুয়ে ফেলুন</li>
+<li><strong>স্টোরেজ:</strong> শুকনো জায়গায় রাখুন, shelf life 12 মাস</li>
+</ul>`,
+    orderTitle: "🛒 অর্ডার করুন",
+    minOrder: "সর্বনিম্ন অর্ডার: ১০০ ব্যাগ",
+    labelName: "আপনার নাম",
+    labelPhone: "ফোন নাম্বার",
+    labelQty: "পরিমাণ",
+    labelUnit: "একক",
+    unitOptions: ["টন", "২৫ কেজি ব্যাগ", "৪০ কেজি ব্যাগ", "৫০ কেজি ব্যাগ"],
+    labelAddress: "ঠিকানা",
+    addressPlaceholder: "আপনার ঠিকানা লিখুন",
+    btnWhatsApp: "হোয়াটসঅ্যাপে অর্ডার করুন",
+    btnEmail: "ইমেইলে অর্ডার করুন"
+  }
+};
+
+function switchLang() {
+  lang = lang === "en" ? "bn" : "en";
+
+  document.getElementById("title").innerText = texts[lang].title;
+  document.getElementById("info").innerHTML = texts[lang].info;
+
+  document.getElementById("orderTitle").innerText = texts[lang].orderTitle;
+  document.getElementById("minOrder").innerText = texts[lang].minOrder;
+  document.getElementById("labelName").innerText = texts[lang].labelName;
+  document.getElementById("labelPhone").innerText = texts[lang].labelPhone;
+  document.getElementById("labelQty").innerText = texts[lang].labelQty;
+  document.getElementById("labelUnit").innerText = texts[lang].labelUnit;
+
+  const unitSelect = document.getElementById("unit");
+  unitSelect.innerHTML = "";
+  texts[lang].unitOptions.forEach(opt => {
+    const option = document.createElement("option");
+    option.textContent = opt;
+    option.value = opt;
+    unitSelect.appendChild(option);
+  });
+
+  document.getElementById("labelAddress").innerText = texts[lang].labelAddress;
+  document.getElementById("address").placeholder = texts[lang].addressPlaceholder;
+  document.getElementById("btnWhatsApp").innerText = texts[lang].btnWhatsApp;
+  document.getElementById("btnEmail").innerText = texts[lang].btnEmail;
+}
+
+/* ORDER MESSAGE */
+function getMessage() {
+  return `${texts[lang].orderTitle} (%0A${texts[lang].minOrder})%0A
+${texts[lang].labelName}: ${document.getElementById("name").value}%0A
+${texts[lang].labelPhone}: ${document.getElementById("phone").value}%0A
+${texts[lang].labelQty}: ${document.getElementById("qty").value}%0A
+${texts[lang].labelUnit}: ${document.getElementById("unit").value}%0A
+${texts[lang].labelAddress}: ${document.getElementById("address").value}`;
+}
+
+/* BUTTON ACTIONS */
+document.getElementById("btnWhatsApp").onclick = () => {
+  window.open(`https://wa.me/8801872481201?text=${getMessage()}`, "_blank");
+};
+
+document.getElementById("btnEmail").onclick = () => {
+  window.location.href = `mailto:Sihab5224@gmail.com?subject=New Order&body=${getMessage().replace(/%0A/g,"\n")}`;
+};
+
+// Load default info
+document.getElementById("info").innerHTML = texts[lang].info;
+</script>
+
+</body>
+</html>

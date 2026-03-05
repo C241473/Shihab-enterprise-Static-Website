@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ART & CRAFT GYPSUM</title>
+
+<style>
+body {
+  font-family: Poppins, sans-serif;
+  background: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.card {
+  width: 420px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 22px;
+  color: #0d6efd;
+  margin: 10px 0;
+}
+
+ul {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+button {
+  background: #0d6efd;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background: #084298;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.order-box {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.order-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #0d6efd;
+}
+
+.note {
+  font-size: 12px;
+  color: red;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <button onclick="switchLang()">বাংলা / English</button>
+
+  <h1 id="title">ART & CRAFT GYPSUM</h1>
+
+  <img src="9.jpg">
+
+  <ul id="info">
+    <li><strong id="countryLabel">Country:</strong> <span id="country">Thailand</span></li>
+    <li><strong id="useLabel">Use:</strong> <span id="use">craft & model making</span></li>
+    <li><strong id="featureLabel">Feature:</strong> <span id="feature">smooth finish</span></li>
+    <li><strong id="storageLabel">Storage:</strong> <span id="storage">store in dry place</span></li>
+  </ul>
+
+  <!-- ORDER FORM -->
+  <div class="order-box">
+
+    <div class="order-title" id="orderTitle">🛒 Place Order</div>
+
+    <div class="note" id="minOrder">Minimum Order: 100 Bags</div>
+
+    <label id="labelName">Your Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label id="labelPhone">Phone Number</label>
+    <input type="text" id="phone" placeholder="01XXXXXXXXX">
+
+    <label id="labelProduct">Select Product</label>
+    <input type="text" id="product" value="ART & CRAFT GYPSUM" readonly>
+
+    <label id="labelQty">Quantity</label>
+    <input type="number" id="qty" value="100" min="1">
+
+    <label id="labelUnit">Unit</label>
+    <select id="unit">
+      <option value="Ton">Ton</option>
+      <option value="25Kg bag">25Kg bag</option>
+      <option value="40Kg bag">40Kg bag</option>
+      <option value="50Kg bag">50Kg bag</option>
+    </select>
+
+    <label id="labelAddress">Address</label>
+    <textarea id="address" placeholder="Enter your address"></textarea>
+
+    <div style="text-align:center">
+      <button id="btnWhatsApp">Order via WhatsApp</button>
+      <button id="btnEmail">Order via Email</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+let lang = "en";
+
+const texts = {
+  en: {
+    title: "ART & CRAFT GYPSUM",
+    country: "Thailand",
+    use: "craft & model making",
+    feature: "smooth finish",
+    storage: "store in dry place",
+    countryLabel: "Country:",
+    useLabel: "Use:",
+    featureLabel: "Feature:",
+    storageLabel: "Storage:",
+    orderTitle: "🛒 Place Order",
+    minOrder: "Minimum Order: 100 Bags",
+    labelName: "Your Name",
+    labelPhone: "Phone Number",
+    labelProduct: "Select Product",
+    productValue: "ART & CRAFT GYPSUM",
+    labelQty: "Quantity",
+    labelUnit: "Unit",
+    unitOptions: ["Ton", "25Kg bag", "40Kg bag", "50Kg bag"],
+    labelAddress: "Address",
+    addressPlaceholder: "Enter your address",
+    btnWhatsApp: "Order via WhatsApp",
+    btnEmail: "Order via Email"
+  },
+  bn: {
+    title: "আর্ট & ক্রাফট জিপসাম",
+    country: "থাইল্যান্ড",
+    use: "ক্রাফট ও মডেল তৈরিতে ব্যবহার",
+    feature: "মসৃণ ফিনিশ",
+    storage: "শুকনো স্থানে সংরক্ষণ করুন",
+    countryLabel: "দেশ:",
+    useLabel: "ব্যবহার:",
+    featureLabel: "বৈশিষ্ট্য:",
+    storageLabel: "সংরক্ষণ:",
+    orderTitle: "🛒 অর্ডার করুন",
+    minOrder: "সর্বনিম্ন অর্ডার: ১০০ ব্যাগ",
+    labelName: "আপনার নাম",
+    labelPhone: "ফোন নাম্বার",
+    labelProduct: "পণ্য নির্বাচন করুন",
+    productValue: "আর্ট & ক্রাফট জিপসাম",
+    labelQty: "পরিমাণ",
+    labelUnit: "একক",
+    unitOptions: ["টন", "২৫ কেজি ব্যাগ", "৪০ কেজি ব্যাগ", "৫০ কেজি ব্যাগ"],
+    labelAddress: "ঠিকানা",
+    addressPlaceholder: "আপনার ঠিকানা লিখুন",
+    btnWhatsApp: "হোয়াটসঅ্যাপে অর্ডার করুন",
+    btnEmail: "ইমেইলে অর্ডার করুন"
+  }
+};
+
+function switchLang() {
+  lang = lang === "en" ? "bn" : "en";
+
+  document.getElementById("title").innerText = texts[lang].title;
+  document.getElementById("country").innerText = texts[lang].country;
+  document.getElementById("use").innerText = texts[lang].use;
+  document.getElementById("feature").innerText = texts[lang].feature;
+  document.getElementById("storage").innerText = texts[lang].storage;
+
+  document.getElementById("countryLabel").innerText = texts[lang].countryLabel;
+  document.getElementById("useLabel").innerText = texts[lang].useLabel;
+  document.getElementById("featureLabel").innerText = texts[lang].featureLabel;
+  document.getElementById("storageLabel").innerText = texts[lang].storageLabel;
+
+  document.getElementById("orderTitle").innerText = texts[lang].orderTitle;
+  document.getElementById("minOrder").innerText = texts[lang].minOrder;
+  document.getElementById("labelName").innerText = texts[lang].labelName;
+  document.getElementById("labelPhone").innerText = texts[lang].labelPhone;
+  document.getElementById("labelProduct").innerText = texts[lang].labelProduct;
+  document.getElementById("product").value = texts[lang].productValue;
+  document.getElementById("labelQty").innerText = texts[lang].labelQty;
+  document.getElementById("labelUnit").innerText = texts[lang].labelUnit;
+
+  // Update unit dropdown dynamically
+  const unitSelect = document.getElementById("unit");
+  unitSelect.innerHTML = ""; // clear existing options
+  texts[lang].unitOptions.forEach(opt => {
+    const option = document.createElement("option");
+    option.textContent = opt;
+    option.value = opt;
+    unitSelect.appendChild(option);
+  });
+
+  document.getElementById("labelAddress").innerText = texts[lang].labelAddress;
+  document.getElementById("address").placeholder = texts[lang].addressPlaceholder;
+  document.getElementById("btnWhatsApp").innerText = texts[lang].btnWhatsApp;
+  document.getElementById("btnEmail").innerText = texts[lang].btnEmail;
+}
+
+/* ORDER MESSAGE */
+function getMessage() {
+  const productMsg = `${document.getElementById("product").value} (${document.getElementById("qty").value} ${document.getElementById("unit").value})`;
+  return `${texts[lang].orderTitle}:%0A
+${texts[lang].labelName}: ${document.getElementById("name").value}%0A
+${texts[lang].labelPhone}: ${document.getElementById("phone").value}%0A
+${texts[lang].labelProduct}: ${productMsg}%0A
+${texts[lang].labelAddress}: ${document.getElementById("address").value}`;
+}
+
+/* BUTTON ACTIONS */
+document.getElementById("btnWhatsApp").onclick = () => {
+  window.open(`https://wa.me/8801872481201?text=${getMessage()}`, "_blank");
+};
+
+document.getElementById("btnEmail").onclick = () => {
+  window.location.href = `mailto:Sihab5224@gmail.com?subject=New Order&body=${getMessage().replace(/%0A/g,"\n")}`;
+};
+</script>
+
+</body>
+</html>
