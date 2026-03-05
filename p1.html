@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GYPSUM PLASTER BK-90</title>
 
 <style>
@@ -9,52 +10,48 @@
 body {
   font-family: Poppins, sans-serif;
   background: #f4f7fb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   margin: 0;
-  padding: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #333;
 }
 
-.card {
-  width: 100%;
-  max-width: 420px; /* desktop max width */
+.container {
+  max-width: 800px; /* desktop width */
+  margin: 0 auto;
   background: white;
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  padding: 20px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.card img {
-  width: 100%;
-  height: auto; /* maintain aspect ratio */
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 28px;
   color: #0d6efd;
-  margin: 10px 0;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 #info {
   text-align: left;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-left: 10px;
-  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 button {
   background: #0d6efd;
   border: none;
   color: white;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 6px;
   cursor: pointer;
   margin: 5px 0;
@@ -67,48 +64,45 @@ button:hover {
 
 input, textarea, select {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
   box-sizing: border-box;
-}
-
-.order-box {
-  margin-top: 15px;
-  text-align: left;
+  font-size: 16px;
 }
 
 .order-title {
   font-weight: 600;
-  margin-bottom: 6px;
   color: #0d6efd;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .note {
-  font-size: 12px;
+  font-size: 14px;
   color: red;
   margin-bottom: 10px;
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   body {
-    padding: 5px;
-  }
-  .card {
-    padding: 15px;
+    padding: 10px;
   }
   h1 {
-    font-size: 20px;
+    font-size: 24px;
   }
-  #info {
-    padding-left: 5px;
-    font-size: 13px;
+  .order-title {
+    font-size: 18px;
+  }
+  input, textarea, select {
+    font-size: 14px;
   }
   button {
     width: 100%;
+    padding: 10px 0;
   }
 }
 </style>
@@ -116,7 +110,7 @@ input, textarea, select {
 
 <body>
 
-<div class="card">
+<div class="container">
 
   <button onclick="switchLang()">বাংলা / English</button>
 
@@ -184,7 +178,7 @@ const texts = {
     labelPhone: "Phone Number",
     labelQty: "Quantity",
     labelUnit: "Unit",
-    unitOptions:   ["Ton", "25Kg bag", "40Kg bag", "50Kg bag"],
+    unitOptions: ["Ton", "25Kg bag", "40Kg bag", "50Kg bag"],
     labelAddress: "Address",
     addressPlaceholder: "Enter your address",
     btnWhatsApp: "Order via WhatsApp",
