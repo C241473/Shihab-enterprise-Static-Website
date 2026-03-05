@@ -240,9 +240,9 @@ footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
   </div>
 
   <div class="header-buttons">
-    <button id="btnProducts">পণ্যসমূহ</button>
-    <button id="btnServices">আমাদের সেবা</button>
-    <button id="btnContact">যোগাযোগ করুন</button>
+    <button id="btnProducts" onclick="window.location.href='buyer.html'">পণ্যসমূহ</button>
+    <button id="btnServices" onclick="window.location.href='service.html'">আমাদের সেবা</button>
+    <button id="btnContact" onclick="window.location.href='contact.html'">যোগাযোগ করুন</button>
     <div class="language-switcher">
       <select id="langSelect">
         <option value="bn" selected>বাংলা</option>
@@ -307,9 +307,8 @@ footer { text-align: center; padding: 14px; color: #777; font-size: 14px; }
 let language = "bn";
 const langSelect = document.getElementById("langSelect");
 
-// texts object remains same as you provided (bn & en)
+// texts object
 const texts = { 
-/* ===== তোমার texts object EXACT same — এখানে কোনো change নাই ===== */
 bn:{ 
   siteTitle:"শিহাব এন্টারপ্রাইজ",
   btnProducts:"পণ্যসমূহ",
@@ -331,22 +330,22 @@ bn:{
   btnEmail:"Email এ অর্ডার",
   footer:"© ২০২৬ শিহাব এন্টারপ্রাইজ | 📧Sihab5224@gmail.com",
   products:[
-  {name:"জিপসাম প্লাস্টার BK-90",details:"থাইল্যান্ডের পণ্য",desc:"জিপসাম প্লাস্টার BK-90 হলো উন্নত মানের কাস্টিং ও ফিনিশিং প্লাস্টার, যা মসৃণ, crack-free ফিনিশ দেয় এবং দ্রুত শক্ত হয়।"},
-  {name:"জিপসম্যান - জিপসাম পাউডার",details:"ওমানের পণ্য",desc:"জিপসাম পাউডার দিয়ে দেয়াল/সিলিং ডেকোরেশন, মডেল মেকিং ও বোর্ড তৈরির কাজ সহজ হয়।"},
-  {name:"প্লাস্টার অফ প্যারিস 5LB",details:"চীনের পণ্য",desc:"প্লাস্টার অফ প্যারিস (POP) হলো সূক্ষ্ম জিপসাম পাউডার যা পানি দিয়ে মিশালে দেয়ালে মসৃণ স্তর তৈরি করে।"},
-  {name:"জিপসাম বোর্ড-1",details:"প্রিমিয়াম জিপসাম বোর্ড",desc:"জিপসাম বোর্ডটি দেয়াল ও সিলিং নির্মাণে ব্যবহৃত হয়।"},
-  {name:"জিপসাম বোর্ড-2",details:"প্রিমিয়াম জিপসাম বোর্ড",desc:"দৃঢ় ও সমান পৃষ্ঠ প্রদানকারী জিপসাম বোর্ড।"},
-  {name:"জিপসাম বোর্ড-3",details:"স্ট্যান্ডার্ড জিপসাম বোর্ড",desc:"স্ট্যান্ডার্ড জিপসাম বোর্ড সহজে ইনস্টল হয়।"},
-  {name:"জিপসাম বোর্ড-4",details:"উচ্চমানের জিপসাম বোর্ড",desc:"প্রিমিয়াম জিপসাম বোর্ড শক্ত ও দীর্ঘস্থায়ী।"},
-  {name:"জিপসাম পাউডার প্লাস্টার",details:"মিশর তৈরি",desc:"EGYPT-এর তৈরি জিপসাম পাউডার।"},
-  {name:"জিপসাম প্লাস্টার-ডায়মন্ড",details:"সুপিরিয়ার ফিনিশিং প্লাস্টার",desc:"উচ্চমানের ফিনিশিং জিপসাম প্লাস্টার।"}
-],
-units:[
-  {value:"টন", text:"টন"},
-  {value:"২৫ কেজি ব্যাগ", text:"২৫ কেজি ব্যাগ"},
-  {value:"৪০ কেজি ব্যাগ", text:"৪০ কেজি ব্যাগ"},
-  {value:"৫০ কেজি ব্যাগ", text:"৫০ কেজি ব্যাগ"}
-]
+    {name:"জিপসাম প্লাস্টার BK-90",details:"থাইল্যান্ডের পণ্য",desc:"জিপসাম প্লাস্টার BK-90 হলো উন্নত মানের কাস্টিং ও ফিনিশিং প্লাস্টার, যা মসৃণ, crack-free ফিনিশ দেয় এবং দ্রুত শক্ত হয়।"},
+    {name:"জিপসম্যান - জিপসাম পাউডার",details:"ওমানের পণ্য",desc:"জিপসাম পাউডার দিয়ে দেয়াল/সিলিং ডেকোরেশন, মডেল মেকিং ও বোর্ড তৈরির কাজ সহজ হয়।"},
+    {name:"প্লাস্টার অফ প্যারিস 5LB",details:"চীনের পণ্য",desc:"প্লাস্টার অফ প্যারিস (POP) হলো সূক্ষ্ম জিপসাম পাউডার যা পানি দিয়ে মিশালে দেয়ালে মসৃণ স্তর তৈরি করে।"},
+    {name:"জিপসাম বোর্ড-1",details:"প্রিমিয়াম জিপসাম বোর্ড",desc:"জিপসাম বোর্ডটি দেয়াল ও সিলিং নির্মাণে ব্যবহৃত হয়।"},
+    {name:"জিপসাম বোর্ড-2",details:"প্রিমিয়াম জিপসাম বোর্ড",desc:"দৃঢ় ও সমান পৃষ্ঠ প্রদানকারী জিপসাম বোর্ড।"},
+    {name:"জিপসাম বোর্ড-3",details:"স্ট্যান্ডার্ড জিপসাম বোর্ড",desc:"স্ট্যান্ডার্ড জিপসাম বোর্ড সহজে ইনস্টল হয়।"},
+    {name:"জিপসাম বোর্ড-4",details:"উচ্চমানের জিপসাম বোর্ড",desc:"প্রিমিয়াম জিপসাম বোর্ড শক্ত ও দীর্ঘস্থায়ী।"},
+    {name:"জিপসাম পাউডার প্লাস্টার",details:"মিশর তৈরি",desc:"EGYPT-এর তৈরি জিপসাম পাউডার।"},
+    {name:"জিপসাম প্লাস্টার-ডায়মন্ড",details:"সুপিরিয়ার ফিনিশিং প্লাস্টার",desc:"উচ্চমানের ফিনিশিং জিপসাম প্লাস্টার।"}
+  ],
+  units:[
+    {value:"টন", text:"টন"},
+    {value:"২৫ কেজি ব্যাগ", text:"২৫ কেজি ব্যাগ"},
+    {value:"৪০ কেজি ব্যাগ", text:"৪০ কেজি ব্যাগ"},
+    {value:"৫০ কেজি ব্যাগ", text:"৫০ কেজি ব্যাগ"}
+  ]
 },
 en:{
   siteTitle:"Sihab Enterprise",
@@ -369,29 +368,41 @@ en:{
   btnEmail:"Order via Email",
   footer:"© 2026 Sihab Enterprise | 📧Sihab5224@gmail.com",
   products:[
-  {name:"GYPSUM PLASTER BK-90",details:"Product of Thailand",desc:"GYPSUM PLASTER BK-90 is a premium casting and finishing plaster providing smooth, crack-free finish and fast setting."},
-  {name:"GYPSOMAN - GYPSUM POWDER",details:"Product of Oman",desc:"Gypsum powder for wall/ceiling decoration, model making, and board work."},
-  {name:"PLASTER OF PARIS 5LB",details:"Product of China",desc:"Plaster of Paris (POP) is a fine gypsum powder for smooth wall coating."},
-  {name:"GYPSUM BOARD-1",details:"Premium gypsum board",desc:"Used for wall and ceiling construction."},
-  {name:"GYPSUM BOARD-2",details:"Premium gypsum board",desc:"Provides strong and even surface."},
-  {name:"GYPSUM BOARD-3",details:"Standard gypsum board",desc:"Standard gypsum board, easy to install."},
-  {name:"GYPSUM BOARD-4",details:"High quality gypsum board",desc:"Premium gypsum board, strong and durable."},
-  {name:"GYPSUM POWDER PLASTER",details:"Made in Egypt",desc:"Gypsum powder made in Egypt."},
-  {name:"GYPSUM PLASTER-DIAMOND",details:"Superior finishing plaster",desc:"High-quality finishing gypsum plaster."}
-],
-units:[
-  {value:"Ton", text:"Ton"},
-  {value:"25kg Bag", text:"25kg Bag"},
-  {value:"40kg Bag", text:"40kg Bag"},
-  {value:"50kg Bag", text:"50kg Bag"}
-]
-}
-};
+    {name:"GYPSUM PLASTER BK-90",details:"Product from Thailand",desc:"High quality casting & finishing plaster, smooth, crack-free, fast setting."},
+    {name:"GypsumMan - Gypsum Powder",details:"Product from Oman",desc:"Gypsum powder for wall/ceiling decoration, modeling & boards."},
+    {name:"Plaster of Paris 5LB",details:"Product from China",desc:"Fine gypsum powder that makes smooth layer on wall with water."},
+    {name:"Gypsum Board-1",details:"Premium Gypsum Board",desc:"Used for wall & ceiling construction."},
+    {name:"Gypsum Board-2",details:"Premium Gypsum Board",desc:"Provides strong & smooth surface."},
+    {name:"Gypsum Board-3",details:"Standard Gypsum Board",desc:"Easy to install standard gypsum board."},
+    {name:"Gypsum Board-4",details:"High-Quality Gypsum Board",desc:"Premium gypsum board, durable & strong."},
+    {name:"Gypsum Powder Plaster",details:"Made in Egypt",desc:"Egypt made gypsum powder."},
+    {name:"Gypsum Plaster-Diamond",details:"Superior Finishing Plaster",desc:"High-quality finishing plaster."}
+  ],
+  units:[
+    {value:"Ton", text:"Ton"},
+    {value:"25 Kg Bag", text:"25 Kg Bag"},
+    {value:"40 Kg Bag", text:"40 Kg Bag"},
+    {value:"50 Kg Bag", text:"50 Kg Bag"}
+  ]
+}};
 
-// ==================== RENDER PRODUCTS ====================
+// ========== RENDER FUNCTIONS ==========
+
+// Hero typing animation
+const typingText = document.getElementById("typingText");
+function typeHeroText(txt){
+  let i=0;
+  typingText.textContent="";
+  const interval = setInterval(()=>{
+    if(i<txt.length){ typingText.textContent += txt[i]; i++; }
+    else clearInterval(interval);
+  },80);
+}
+
+// Render product cards
 function renderProducts(){
   const container = document.getElementById("productCards");
-  container.innerHTML = "";
+  container.innerHTML="";
   texts[language].products.forEach((p,i)=>{
     const card = document.createElement("div");
     card.className="product-card";
@@ -399,54 +410,39 @@ function renderProducts(){
       <img src="${i+1}.jpg" alt="${p.name}">
       <h3>${p.name}</h3>
       <p>${p.details}</p>
-      <button class="btn-see">${language==='bn'?'বিস্তারিত':'See More'}</button>
+      <button class="btn-see">${language==='bn'?'অর্ডার করুন':'Order Now'}</button>
     `;
-    card.querySelector(".btn-see").onclick=()=>openModal(i);
+    card.querySelector(".btn-see").onclick = ()=>{
+      window.location.href = `p${i+1}.html`;
+    };
     container.appendChild(card);
   });
 }
 
-// ==================== RENDER ORDER LIST ====================
-function renderOrderList(){
-  const listContainer = document.getElementById("multiSelectProductsList");
-  listContainer.innerHTML="";
-  texts[language].products.forEach(p=>{
-    
-    // 👉 gypsum board detect
-    const isBoard = p.name.toLowerCase().includes("board") || p.name.includes("বোর্ড");
-    
-    const unitOptions = isBoard
-      ? (language==="bn"
-          ? `<option value="পিস">পিস</option>`
-          : `<option value="Piece">Piece</option>`)
-      : texts[language].units.map(u=>`<option value="${u.value}">${u.text}</option>`).join("");
-
+// Multi select product list
+function renderMultiSelectProducts(){
+  const container = document.getElementById("multiSelectProductsList");
+  container.innerHTML="";
+  texts[language].products.forEach((p,i)=>{
     const div = document.createElement("div");
     div.className="multi-select-item";
     div.innerHTML=`
-      <label>
-        <input type="checkbox" class="prodCheckbox">
-        <span>${p.name}</span>
-      </label>
+      <label><input type="checkbox" value="${p.name}"><span>${p.name}</span></label>
       <div class="qty-unit">
-        <input type="number" min="1" value="1" class="qtyInput">
-        <select>${unitOptions}</select>
+        <input type="number" min="0" value="0">
+        <select>${texts[language].units.map(u=>`<option value="${u.value}">${u.text}</option>`).join("")}</select>
       </div>
     `;
-    listContainer.appendChild(div);
+    container.appendChild(div);
   });
 }
-// ==================== GYPSUM NOTE ====================
-function updateGypsumNote() {
-  const noteEl = document.getElementById("gypsumNote");
-  if(language==='bn'){
-    noteEl.textContent = "বিশেষ দ্রষ্টব্য:জিপসাম বোর্ড অর্ডার করার সময় সঠিক পরিমাণ ও মাপ জানতে WhatsApp/Email-এ যোগাযোগ করে অর্ডার প্লেস করতে হবে।";
-  } else {
-    noteEl.textContent = "Note: For Gypsum board orders, you must contact via WhatsApp/Email to confirm the correct quantity and size before placing the order.";
-  }
-}
 
-// ==================== UPDATE LANGUAGE ====================
+// Language switch
+langSelect.addEventListener("change", ()=>{
+  language = langSelect.value;
+  updateLanguage();
+});
+
 function updateLanguage(){
   document.getElementById("siteTitle").textContent = texts[language].siteTitle;
   document.getElementById("btnProducts").textContent = texts[language].btnProducts;
@@ -466,65 +462,21 @@ function updateLanguage(){
   document.getElementById("btnWhatsApp").textContent = texts[language].btnWhatsApp;
   document.getElementById("btnEmail").textContent = texts[language].btnEmail;
   document.getElementById("footerText").textContent = texts[language].footer;
+  typeHeroText(texts[language].heroText);
   renderProducts();
-  renderOrderList();
-  updateGypsumNote();
+  renderMultiSelectProducts();
 }
 
-// ==================== MODAL ====================
-function openModal(i){
-  document.getElementById("modalTitle").textContent = texts[language].products[i].name;
-  document.getElementById("modalDesc").textContent = texts[language].products[i].desc;
+// Modal
+function showModal(title,desc){
+  document.getElementById("modalTitle").textContent=title;
+  document.getElementById("modalDesc").textContent=desc;
   document.getElementById("modalBg").style.display="flex";
 }
 function closeModal(){ document.getElementById("modalBg").style.display="none"; }
 
-// ==================== HERO TYPING ====================
-let idx=0;
-function typeHero(){
-  const el = document.getElementById("typingText");
-  const text = texts[language].heroText;
-  if(idx < text.length){
-    el.textContent += text[idx++];
-    setTimeout(typeHero, 80);
-  } else setTimeout(()=>{ el.textContent=""; idx=0; typeHero(); }, 3000);
-}
-typeHero();
-
-// ==================== LANGUAGE SWITCH ====================
-langSelect.addEventListener("change", ()=>{
-  language = langSelect.value;
-  updateLanguage();
-});
-
-// ==================== NAV BUTTONS ====================
-document.getElementById('btnProducts').addEventListener('click', ()=>{ window.location.href='buyer.html'; });
-document.getElementById('btnServices').addEventListener('click', ()=>{ window.location.href='service.html'; });
-document.getElementById('btnContact').addEventListener('click', ()=>{ window.location.href='contact.html'; });
-
-// ==================== ORDER MESSAGE ====================
-function getMessage(){
-  const selectedItems = Array.from(document.querySelectorAll(".multi-select-item"))
-    .filter(item => item.querySelector(".prodCheckbox").checked);
-  let productMsg = selectedItems.map(item=>{
-    const name = item.querySelector("span").textContent;
-    const qty = item.querySelector(".qtyInput").value;
-    const unit = item.querySelector("select").value;
-    return `${name} (${qty} ${unit})`;
-  }).join(", ");
-  return `${texts[language].orderTitle}:%0A${texts[language].labelName}: ${document.getElementById("name").value}%0A${texts[language].labelPhone}: ${document.getElementById("phone").value}%0A${texts[language].labelProduct}: ${productMsg}%0A${texts[language].labelAddress}: ${document.getElementById("address").value}`;
-}
-
-document.getElementById("btnWhatsApp").onclick = ()=>{ 
-  window.open(`https://wa.me/8801872481201?text=${getMessage()}`, "_blank"); 
-}
-document.getElementById("btnEmail").onclick = ()=>{ 
-  window.location.href=`mailto:Sihab5224@gmail.com?subject=New Order&body=${getMessage().replace(/%0A/g,"\n")}`; 
-}
-
-// ==================== INITIAL RENDER ====================
+// Initialize
 updateLanguage();
 </script>
-
 </body>
 </html>
