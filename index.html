@@ -423,20 +423,48 @@ function renderProducts(){
 function renderMultiSelectProducts(){
   const container = document.getElementById("multiSelectProductsList");
   container.innerHTML="";
+
   texts[language].products.forEach((p,i)=>{
+
+    let unitOptions = "";
+
+    // ===== Gypsum Board units =====
+    if(p.name.toLowerCase().includes("board") || p.name.includes("বোর্ড")){
+      unitOptions = `
+        <option value="${language==='bn'?'পিস':'Piece'}">
+        ${language==='bn'?'পিস':'Piece'}
+        </option>
+      `;
+    }
+
+    // ===== Other products units =====
+    else{
+      unitOptions = texts[language].units
+        .map(u=>`<option value="${u.value}">${u.text}</option>`)
+        .join("");
+    }
+
     const div = document.createElement("div");
     div.className="multi-select-item";
+
     div.innerHTML=`
-      <label><input type="checkbox" value="${p.name}"><span>${p.name}</span></label>
+      <label>
+        <input type="checkbox" value="${p.name}">
+        <span>${p.name}</span>
+      </label>
+
       <div class="qty-unit">
         <input type="number" min="0" value="0">
-        <select>${texts[language].units.map(u=>`<option value="${u.value}">${u.text}</option>`).join("")}</select>
+        <select>
+          ${unitOptions}
+        </select>
       </div>
     `;
+
     container.appendChild(div);
+
   });
 }
-
 // ==================== GYPSUM NOTE ====================
 function updateGypsumNote() {
   const noteEl = document.getElementById("gypsumNote");
