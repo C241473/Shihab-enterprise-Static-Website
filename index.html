@@ -437,6 +437,16 @@ function renderMultiSelectProducts(){
   });
 }
 
+// ==================== GYPSUM NOTE ====================
+function updateGypsumNote() {
+  const noteEl = document.getElementById("gypsumNote");
+  if(language==='bn'){
+    noteEl.textContent = "বিশেষ দ্রষ্টব্য:জিপসাম বোর্ড অর্ডার করার সময় সঠিক পরিমাণ ও মাপ জানতে WhatsApp/Email-এ যোগাযোগ করে অর্ডার প্লেস করতে হবে।";
+  } else {
+    noteEl.textContent = "Note: For Gypsum board orders, you must contact via WhatsApp/Email to confirm the correct quantity and size before placing the order.";
+  }
+}
+
 // Language switch
 langSelect.addEventListener("change", ()=>{
   language = langSelect.value;
@@ -465,6 +475,7 @@ function updateLanguage(){
   typeHeroText(texts[language].heroText);
   renderProducts();
   renderMultiSelectProducts();
+  updateGypsumNote(); // <-- update gypsum note
 }
 
 // Modal
