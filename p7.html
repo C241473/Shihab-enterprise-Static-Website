@@ -2,110 +2,107 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GYPSUM BOARD-4</title>
-
 <style>
 body {
   font-family: Poppins, sans-serif;
   background: #f4f7fb;
+  margin: 0;
+  padding: 0;
+  color: #333;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
 }
 
-.card {
-  width: 420px;
+/* CONTAINER - full width */
+.container {
+  width: 100%;
+  max-width: 900px; /* same as BOARD-1 */
   background: white;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   padding: 20px;
-  text-align: center;
+  box-sizing: border-box;
+  margin: 20px;
 }
 
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
+/* TITLE */
 h1 {
-  font-size: 22px;
+  font-size: 28px;
   color: #0d6efd;
-  margin: 10px 0;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
+/* IMAGE */
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* INFO */
 #info {
-  text-align: left;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 25px;
 }
 
+/* BUTTONS */
 button {
   background: #0d6efd;
   border: none;
   color: white;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 6px;
   cursor: pointer;
-  margin: 5px;
+  margin: 5px 0;
+  transition: 0.3s;
 }
+button:hover { background: #084298; }
 
-button:hover {
-  background: #084298;
-}
-
+/* INPUTS */
 input, textarea, select {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
-.order-box {
-  margin-top: 15px;
-  text-align: left;
-}
+/* ORDER BOX */
+.order-title { font-weight: 600; color: #0d6efd; font-size: 22px; margin-bottom: 10px; }
+.note { font-size: 14px; color: red; margin-bottom: 10px; text-align:center; }
 
-.order-title {
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #0d6efd;
-}
-
-.note {
-  font-size: 12px;
-  color: red;
-  margin-bottom: 10px;
+/* RESPONSIVE */
+@media (max-width:600px){
+  .container { width: 95%; padding: 15px; margin: 10px; }
+  h1 { font-size: 24px; }
+  .order-title { font-size: 20px; }
+  input, textarea, select { font-size: 14px; }
+  button { width: 100%; padding: 12px 0; }
 }
 </style>
 </head>
-
 <body>
 
-<div class="card">
-
+<div class="container">
   <button onclick="switchLang()">বাংলা / English</button>
-
   <h1 id="title">GYPSUM BOARD-4</h1>
 
-  <img src="7.jpg">
+  <img src="7.jpg" alt="Gypsum Board 4">
 
-  <div id="info">
-    <!-- Info will be injected here dynamically -->
-  </div>
+  <div id="info"></div>
 
-  <!-- ORDER FORM -->
   <div class="order-box">
-
     <div class="order-title" id="orderTitle">🛒 Place Order</div>
-
-    <div class="note" id="minOrder">Minimum Order: 10 Piece</div>
+    <div class="note" id="minOrder">Minimum Order: 100 Piece</div>
 
     <label id="labelName">Your Name</label>
     <input type="text" id="name" placeholder="Enter your name">
@@ -114,7 +111,7 @@ input, textarea, select {
     <input type="text" id="phone" placeholder="01XXXXXXXXX">
 
     <label id="labelQty">Quantity</label>
-    <input type="number" id="qty" value="10" min="1">
+    <input type="number" id="qty" value="100" min="1">
 
     <label id="labelUnit">Unit</label>
     <select id="unit">
@@ -128,9 +125,7 @@ input, textarea, select {
       <button id="btnWhatsApp">Order via WhatsApp</button>
       <button id="btnEmail">Order via Email</button>
     </div>
-
   </div>
-
 </div>
 
 <script>
@@ -141,11 +136,11 @@ const texts = {
     title: "GYPSUM BOARD-4",
     info: `<ul>
 <li><strong>Material:</strong> Gypsum + Fiber</li>
-<li><strong>Use:</strong> Interior wall & ceiling</li>
+<li><strong>Use:</strong> Wall & Ceiling Construction</li>
 <li><strong>Packaging:</strong> 8ft x 4ft Board</li>
 <li><strong>Feature:</strong> Premium, strong & long-lasting</li>
-<li><strong>Safety:</strong> Use safety gear during installation</li>
-<li><strong>Storage:</strong> Store in dry place</li>
+<li><strong>Safety:</strong> Use helmet & gloves during installation</li>
+<li><strong>Storage:</strong> Store in dry place, avoid direct ground contact</li>
 </ul>`,
     orderTitle: "🛒 Place Order",
     minOrder: "Minimum Order: 100 Piece",
@@ -163,11 +158,11 @@ const texts = {
     title: "জিপসাম বোর্ড-৪",
     info: `<ul>
 <li><strong>উপাদান:</strong> জিপসাম + ফাইবার</li>
-<li><strong>ব্যবহার:</strong> অভ্যন্তরীণ দেয়াল ও সিলিং</li>
+<li><strong>ব্যবহার:</strong> দেয়াল ও সিলিং নির্মাণ</li>
 <li><strong>প্যাকেজিং:</strong> 8ft x 4ft বোর্ড</li>
 <li><strong>ফিচার:</strong> প্রিমিয়াম, শক্ত ও দীর্ঘস্থায়ী</li>
-<li><strong>সেফটি:</strong> ইনস্টলেশনের সময় সুরক্ষা সরঞ্জাম ব্যবহার করুন</li>
-<li><strong>স্টোরেজ:</strong> শুকনো স্থানে রাখুন</li>
+<li><strong>সেফটি:</strong> ইনস্টলেশনের সময় হেলমেট ও গ্লাভস ব্যবহার করুন</li>
+<li><strong>স্টোরেজ:</strong> শুকনো স্থানে রাখুন, সরাসরি মাটির উপর রাখবেন না</li>
 </ul>`,
     orderTitle: "🛒 অর্ডার করুন",
     minOrder: "সর্বনিম্ন অর্ডার: ১০০ পিস",
@@ -182,15 +177,6 @@ const texts = {
     btnEmail: "ইমেইলে অর্ডার করুন"
   }
 };
-// ==================== GYPSUM NOTE ====================
-function updateGypsumNote() {
-  const noteEl = document.getElementById("gypsumNote");
-  if(language==='bn'){
-    noteEl.textContent = "বিশেষ দ্রষ্টব্য:জিপসাম বোর্ড অর্ডার করার সময় সঠিক পরিমাণ ও মাপ জানতে WhatsApp/Email-এ যোগাযোগ করে অর্ডার প্লেস করতে হবে।";
-  } else {
-    noteEl.textContent = "Note: For Gypsum board orders, you must contact via WhatsApp/Email to confirm the correct quantity and size before placing the order.";
-  }
-}
 
 function switchLang() {
   lang = lang === "en" ? "bn" : "en";
@@ -220,7 +206,6 @@ function switchLang() {
   document.getElementById("btnEmail").innerText = texts[lang].btnEmail;
 }
 
-/* ORDER MESSAGE */
 function getMessage() {
   return `${texts[lang].orderTitle} (%0A${texts[lang].minOrder})%0A
 ${texts[lang].labelName}: ${document.getElementById("name").value}%0A
@@ -230,7 +215,6 @@ ${texts[lang].labelUnit}: ${document.getElementById("unit").value}%0A
 ${texts[lang].labelAddress}: ${document.getElementById("address").value}`;
 }
 
-/* BUTTON ACTIONS */
 document.getElementById("btnWhatsApp").onclick = () => {
   window.open(`https://wa.me/8801872481201?text=${getMessage()}`, "_blank");
 };
