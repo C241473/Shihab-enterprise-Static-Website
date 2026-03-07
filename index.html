@@ -13,6 +13,10 @@ body {
   color: #333; 
   background: #f7f8fa;
 }
+.typing{
+  direction:ltr;
+  unicode-bidi:isolate;
+}
 
 h2 { color: #0d6efd; text-align: center; margin: 20px 0 10px; }
 
@@ -352,7 +356,7 @@ en:{
   btnProducts:"Products",
   btnServices:"Services",
   btnContact:"Contact",
-  heroText:"Premium Gypsum Products Supplier",
+  heroText:"Premium Gypsum Products Importer &  High-Quality Gypsum Products Supplier",
   heroDesc:"We import and supply high-quality gypsum powder and boards.",
   productsTitle:"📦 Our Products",
   orderTitle:"🛒 Place Order",
@@ -389,16 +393,27 @@ en:{
 // ========== RENDER FUNCTIONS ==========
 
 // Hero typing animation
-const typingText = document.getElementById("typingText");
-function typeHeroText(txt){
-  let i=0;
-  typingText.textContent="";
-  const interval = setInterval(()=>{
-    if(i<txt.length){ typingText.textContent += txt[i]; i++; }
-    else clearInterval(interval);
-  },80);
-}
+let typingInterval;
 
+function typeHeroText(txt){
+
+  clearInterval(typingInterval); // stop previous typing
+
+  typingText.textContent = "";   // clear old text
+  let i = 0;
+
+  typingInterval = setInterval(()=>{
+
+    if(i < txt.length){
+      typingText.textContent += txt.charAt(i);
+      i++;
+    }else{
+      clearInterval(typingInterval);
+    }
+
+  },80);
+
+}
 // Render product cards
 function renderProducts(){
   const container = document.getElementById("productCards");
